@@ -55,12 +55,12 @@ Layer Three Design integration (Grasshopper bridge)     urbanmind/gh_bridge/
 | `urbanmind/eval/` | Experiments 1–3, unified statistical protocol (cluster bootstrap + Holm), calibration evaluation |
 | `urbanmind/runtime/` | Timestamped per-run benchmark logging for the <30 s interactive claim |
 | `urbanmind/gh_bridge/` | HTTP endpoint consumed by the Grasshopper component |
-| `scripts/` | Record-assignment table generation, bibliography audit (Crossref), runtime benchmark, synthetic end-to-end demo |
+| `scripts/` | Record-assignment table generation, runtime benchmark, synthetic end-to-end demo |
 | `tests/` | Smoke tests on synthetic data |
 
 ## Reproducibility artifacts
 
-These modules generate the supplementary artifacts referenced in the revised manuscript:
+These modules generate the supplementary artifacts referenced in the manuscript:
 
 - **Record-level Track A/B split** (`urbanmind/data/tracks.py`,
   `scripts/make_record_assignment.py`) — DOI- and study-site-disjoint partition of the

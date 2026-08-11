@@ -1,10 +1,10 @@
 /* Records the backend demo session with Playwright's native video capture.
-   Run from the polis project (where playwright is installed):
-   node /Users/a123/Projects/urbanmind/demo/record_video.mjs */
+   Requires: npm i playwright && npx playwright install chromium-headless-shell
+   Start demo/serve_demo.py first, then: node demo/record_video.mjs */
 
 import { chromium } from 'playwright';
 
-const OUT_DIR = '/tmp/urbanmind_video';
+const OUT_DIR = 'demo_recording';
 const browser = await chromium.launch();
 const context = await browser.newContext({
   viewport: { width: 1280, height: 800 },

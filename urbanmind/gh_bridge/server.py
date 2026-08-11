@@ -1,9 +1,9 @@
 """HTTP endpoint consumed by the Grasshopper component.
 
 POST /evaluate with a JSON body of intervention parameters returns the four-domain
-fields, uncertainty layers, and summary indicators for the loaded case. This is the
-real backend behind the runtime benchmark -- unlike the interface mock-up, requests
-here execute the full rollout / KRCG / uncertainty / render chain.
+fields, uncertainty layers, and summary indicators for the loaded case. Every
+request executes the full rollout / KRCG / uncertainty / render chain and is
+captured by the runtime benchmark logger.
 
 Run:  python -m urbanmind.gh_bridge.server --port 8787
 """

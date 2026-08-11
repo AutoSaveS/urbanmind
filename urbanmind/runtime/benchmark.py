@@ -3,7 +3,7 @@
 Every edit-to-output interval is logged with a wall-clock timestamp, including the
 discarded warm-up runs, failures, and timeouts, together with the hardware, caching,
 and data-loading conditions. The released JSONL logs let the <30 s interactive claim
-be verified independently of the interface mock-up.
+be verified independently.
 """
 
 import json
