@@ -1,0 +1,92 @@
+doi,author_year,target_domain,effect_value,effect_unit,measurement,condition,source
+10.1002/(sici)1097-0088(199805)18:6<681::aid-joc289>3.0.co;2-l,"Upmanis, Eliasson & Lindqvist 1998",thermal_air,1.33,degC,measured,"nocturnal park cool island, means from Fig 6 (m-a)",Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1002/joc.1330,"Potchter, Cohen & Bitan 2006",thermal_air,0.80,degC,measured,day/night mean PCI across 3 parks (m-a),Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1007/bf01040959,Barradas 1991,thermal_air,1.28,degC,measured,"daytime, rainy season, 5 parks (m-a)",Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1007/s00484-015-1014-x,Konarska et al. 2015,none,,,,abstract reports transpiration/no significant air temperature difference; no numeric cooling value,primary abstract
+10.1007/s00704-010-0293-8,Chow et al. 2011,thermal_air,1.75,degC,measured,"daytime autumn, xeric/lawn campus sites vs hard surfaces",Knight 2021 Additional file 5 (outcome data tables)
+10.1007/s00704-015-1409-y,Coutts et al. 2015,thermal_air,0.80,degC,measured,"night-time, street with trees vs mixed street, p<0.05",Knight 2021 Additional file 5 (outcome data tables)
+10.1007/s10661-008-0483-3,"Zoulia, Santamouris & Dimoudi 2009",thermal_air,2.43,degC,measured,park vs urban station means (m-a),Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1016/0378-7788(90)90021-a,Jauregui 1991,thermal_air,3.0,degC,measured,"up to (reported range 2-3 degC); nocturnal traverses, clear calm nights, park vs boundaries",primary abstract
+10.1016/j.apr.2021.01.017,Jia et al. 2021,pollutant_other,6,percent,measured,PM reduction near residential buildings behind roadside GI (BC 8%); pathway concentrations increased 20-28%,primary abstract
+10.1016/j.atmosenv.2018.12.036,Abhijith & Kumar 2019,pm10,15,percent,measured,"up to; behind GI, cross-road winds, open-road field campaign",primary abstract
+10.1016/j.atmosenv.2018.12.036,Abhijith & Kumar 2019,pm25,17,percent,measured,"up to; behind GI, cross-road winds (max relative change lowest for PM2.5)",primary abstract
+10.1016/j.atmosenv.2021.118189,Donateo et al. 2021,pm10,23,percent,measured,"up to (19-23%); CityTree moss filter, active mode, close proximity",primary abstract
+10.1016/j.atmosenv.2021.118189,Donateo et al. 2021,pm25,20,percent,measured,"up to (15-20%); CityTree moss filter, active mode, close proximity",primary abstract
+10.1016/j.buildenv.2005.07.030,"Hien, Yok & Yu 2007",thermal_air,1.46,degC,measured,"rooftop garden site vs comparator, Figs 15/20 (m-a)",Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1016/j.buildenv.2006.06.017,Takebayashi & Moriyama 2007,thermal_surface,3.04,degC,measured,"green roof vs concrete roof, surface heat budget study (m-a)",Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1016/j.buildenv.2009.12.003,Georgi & Dimitriou 2010,thermal_air,2.56,degC,measured,"green vs built-up sites, Thessaloniki (m-a)",Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1016/j.buildenv.2010.03.001,Fioretti et al. 2010,thermal_surface,7.26,degC,measured,August monthly mean: concrete roof surface vs green roof substrate,Knight 2021 Additional file 5 (outcome data tables)
+10.1016/j.buildenv.2011.04.034,"Oliveira, Andrade & Vaz 2011",thermal_air,2.18,degC,measured,"garden vs surrounding streets, summer daytime (m-a)",Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1016/j.buildenv.2011.06.025,Mahmoud 2011,thermal_air,4.7,degC,measured,"10-day daytime mean, trees/shrubs zone vs tree-lined paved road within park",Knight 2021 Additional file 5 (outcome data tables)
+10.1016/j.buildenv.2011.07.027,Chow & Brazel 2012,thermal_air,2.5,degC,modeled,"microscale cooling, high-xeriscaping scenario in xeric residential area (local scale ~1.1); ENVI-met",primary abstract
+10.1016/j.buildenv.2011.08.004,"Mackey, Lee & Smith 2012",none,,,,abstract reports NDVI-LST regression relationships only; no per-site temperature difference,primary abstract
+10.1016/j.buildenv.2011.11.020,"Cohen, Potchter & Matzarakis 2012",thermal_air,1.32,degC,measured,"summer, wooded park vs reference (winter 1.17) (m-a)",Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1016/j.buildenv.2014.03.003,Zhang et al. 2014,energy,60,percent,modeled,"citywide reduction in net cooling energy use attributable to green spaces, summer (empirical model)",primary abstract
+10.1016/j.buildenv.2015.06.002,Heusinger & Weber 2015,thermal_surface,0.10,degC,measured,"extensive green roof vs bitumen roof, surface temperature (m-a)",Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1016/j.buildenv.2016.10.021,Solcerova et al. 2017,thermal_air,0.48,degC,measured,"daytime air above blue-green roof, cloudy days (clear 0.37); surface was warmer",Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1016/j.buildenv.2017.02.020,Yin et al. 2017,thermal_surface,2.60,degC,measured,green facade vs bare wall (m-a),Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1016/j.ecoleng.2016.06.050,MacIvor et al. 2016,none,,,,abstract qualitative (cooling improved by irrigation/substrate/Sedum cover); no numeric difference,primary abstract
+10.1016/j.enbuild.2005.02.001,"Lazzarin, Castellotti & Busato 2005",none,,,,abstract has no quantitative effect size; full text and review tables inaccessible,primary abstract
+10.1016/j.enbuild.2011.09.018,Getter et al. 2011,thermal_air,1.5,degC,measured,September monthly mean maximum air temp 1 m above green roof vs gravel roof,Knight 2021 Additional file 5 (outcome data tables)
+10.1016/j.enbuild.2015.04.055,"Karachaliou, Santamouris & Pangalou 2016",thermal_surface,14.0,degC,measured,dense-foliage green roof vs reference roof (less dense 8.2) (m-a),Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1016/j.enbuild.2015.06.047,Hoelscher et al. 2016,thermal_surface,3.16,degC,measured,"facade greening vs bare wall, Fig 5a (m-a)",Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1016/j.enbuild.2016.06.016,He et al. 2016,none,,,,abstract reports qualitative heat-flux/correlation findings only; no numeric value accessible,primary abstract
+10.1016/j.enbuild.2016.09.056,El Bachawati et al. 2016,thermal_surface,9.74,degC,measured,"max recorded surface temp: traditional gravel roof 33.98 vs extensive green roof substrate 24.24, Lebanon",Cascone 2019 review summary (via web search)
+10.1016/j.enbuild.2016.10.056,Foustalieraki et al. 2017,thermal_surface,10.11,degC,measured,dense-foliage green roof vs reference roof (m-a),Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1016/j.enbuild.2017.03.036,Perini et al. 2017,thermal_air,5.2,degC,measured,July mean: air behind green facade vs outside,Knight 2021 Additional file 5 (outcome data tables)
+10.1016/j.enbuild.2017.05.052,Xu et al. 2017,thermal_air,12.0,degC,measured,"up to, at 12:00 summer; tree clusters vs open hard ground (site values 10.8-12.0)",Knight 2021 Additional file 5 (outcome data tables)
+10.1016/j.energy.2006.11.011,Santamouris et al. 2007,energy,49,percent,modeled,up to (range 6-49%) whole-building summer cooling load; top floor 12-87%,primary abstract
+10.1016/j.envpol.2011.03.007,"Susca, Gaffin & Dell'Osso 2011",thermal_air,2.0,degC,measured,average difference between most and least vegetated NYC monitoring areas,primary abstract
+10.1016/j.envpol.2011.03.009,Yin et al. 2011,pollutant_other,9.1,percent,measured,"TSP removal by park vegetation, summer, Pudong (SO2 5.3%, NO2 2.6%)",primary abstract
+10.1016/j.envpol.2012.11.010,Setala et al. 2013,pollutant_other,7.0,percent,measured,"NO2 reduction under tree canopies vs adjacent open areas, August in-leaf (p=0.085); TVOC 19.1%",Knight 2021 Additional file 5 (outcome data tables)
+10.1016/j.envpol.2014.02.026,Grundstrom & Pleijel 2014,pollutant_other,7,percent,measured,NO2 mean in:out canopy ratio 0.93 (p=0.016),Knight 2021 Additional file 5 (outcome data tables)
+10.1016/j.envpol.2014.02.026,Grundstrom & Pleijel 2014,o3,2,percent,measured,O3 mean in:out canopy ratio 0.98 (not significant),Knight 2021 Additional file 5 (outcome data tables)
+10.1016/j.envpol.2014.08.015,"Cohen, Potchter & Schnell 2014",pollutant_other,48.5,percent,measured,"NOx park vs surrounding streets, summer (winter 78%); O3 similar or slightly higher inside park",Knight 2021 Additional file 5 (outcome data tables)
+10.1016/j.envpol.2015.02.026,Tong et al. 2015,none,,,,abstract qualitative (fewer PM2.5 spikes behind barrier; trees can locally increase concentrations),primary abstract
+10.1016/j.envpol.2015.09.006,Chen et al. 2016,none,,,,abstract qualitative; no numeric concentration reduction reported,primary abstract
+10.1016/j.envpol.2019.01.016,Gomez-Moreno et al. 2019,pm10,50,percent,measured,"up to, 200 m into park vs traffic site (25% at 20 m), summer transects, Madrid",primary abstract
+10.1016/j.envpol.2019.01.016,Gomez-Moreno et al. 2019,pm25,50,percent,measured,"up to, 200 m into park vs traffic site, summer transects, Madrid",primary abstract
+10.1016/j.envpol.2020.114884,Abhijith & Kumar 2020,pollutant_other,9,percent,measured,up to (2-9%) PM reduction behind roadside hedge; PM1>PM10>PM2.5,primary abstract
+10.1016/j.habitatint.2004.04.008,Wong & Yu 2005,thermal_air,3.1,degC,measured,"1-day mean: large green area vs CBD, p<0.0001",Knight 2021 Additional file 5 (outcome data tables)
+10.1016/j.habitatint.2017.07.009,Qiu et al. 2017,thermal_air,1.40,degC,measured,green space vs built reference (m-a),Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1016/j.jclepro.2020.123306,Srbinovska et al. 2021,pm25,25,percent,measured,"average vs neighbouring non-green area; green wall, Skopje",primary abstract
+10.1016/j.jclepro.2020.123306,Srbinovska et al. 2021,pm10,37,percent,measured,"average vs neighbouring non-green area; green wall, Skopje",primary abstract
+10.1016/j.landurbplan.2006.09.005,"Chang, Li & Chang 2007",thermal_air,0.83,degC,measured,"mean park cool island, 61 Taipei parks (m-a)",Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1016/j.landurbplan.2010.03.008,Cao et al. 2010,thermal_surface,1.16,degC,measured,"average park cooling-effect intensity, summer (spring 1.30, autumn 0.43); ASTER LST, Nagoya",Aram 2019 Heliyon review text
+10.1016/j.landurbplan.2013.11.002,Skoulika et al. 2014,thermal_air,1.32,degC,measured,"park vs urban reference, Athens (m-a)",Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1016/j.landurbplan.2013.12.008,"Feyisa, Dons & Meilby 2014",thermal_surface,6.72,degC,measured,"maximum park cooling intensity across 21 parks, Landsat ETM+ LST, Addis Ababa",primary abstract
+10.1016/j.landurbplan.2015.06.005,Gillner et al. 2015,thermal_air,2.22,degC,measured,"up to (species means 0.77-2.22 K), daytime below crown vs open; asphalt surface cooling 5.5-15.2 K",Knight 2021 Additional file 5 (outcome data tables)
+10.1016/j.renene.2007.03.022,Spala et al. 2008,energy,40,percent,modeled,approx. 40% summer cooling load reduction for office building with green roof (dynamic simulation),primary abstract
+10.1016/j.renene.2009.12.021,Tsiros 2010,thermal_air,2.2,degC,measured,"max cooling at 17:00 during heatwave (mean ranges 0.5-1.6 at 14:00, 0.4-2.2 at 17:00)",primary abstract
+10.1016/j.renene.2009.12.021,Tsiros 2010,energy,8.6,percent,modeled,"up to (2.6-8.6%) daytime AC consumption reduction, simplified estimate",primary abstract
+10.1016/j.renene.2020.01.085,"Bevilacqua, Bruno & Arcuri 2020",energy,34.9,percent,modeled,"annual cooling energy saving, non-insulated green roof, continuous AC operation (validated TRNSYS)",primary abstract
+10.1016/j.scitotenv.2011.12.002,Hagler et al. 2012,none,,,,vegetation-barrier effect on ultrafine particles variable/uncertain in abstract; only solid noise wall showed ~50% reduction,primary abstract
+10.1016/j.scitotenv.2012.10.101,Salmond et al. 2013,pollutant_other,49.3,percent,measured,"NO2 leaf-on vs leaf-off season, street canyon site 1 (14.0 vs 7.1 ppb; seasonally confounded)",Knight 2021 Additional file 5 (outcome data tables)
+10.1016/j.scitotenv.2014.06.048,"Doick, Peace & Hutchings 2014",thermal_air,1.1,degC,measured,"average summer nighttime cooling (max 4.0 degC), Kensington Gardens, London",Aram 2019 Heliyon review text
+10.1016/j.scitotenv.2016.02.035,Lin et al. 2016,pollutant_other,63.6,percent,measured,"up to (37.7-63.6%) UFP reduction behind roadside vegetation barrier, full foliage (CO 23.6-56.1%)",primary abstract
+10.1016/j.scitotenv.2017.11.327,"Yan, Wu & Dong 2018",thermal_air,2.8,degC,measured,"23:00 summer mean, park vs surrounding streets (site means 0.6-2.8; max 4.8 at midnight)",Knight 2021 Additional file 5 (outcome data tables)
+10.1016/j.scitotenv.2018.12.262,Ozdemir 2019,pm25,17,percent,measured,"thick roadside cypress tree row vs no trees, dense-traffic roadside, Istanbul",primary abstract
+10.1016/j.uclim.2013.01.001,Speak et al. 2013,thermal_air,0.88,degC,measured,summer mean above intensive green roof vs bare rooftop (annual mean 0.43) (m-a),Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1016/j.uclim.2015.02.001,Fantozzi et al. 2015,o3,14.5,percent,measured,"under holm oak stand vs open field at 1 m from road, July (winter 32%); NO2 higher under canopy",Knight 2021 Additional file 5 (outcome data tables)
+10.1016/j.ufug.2009.10.002,Hamada & Ohta 2010,thermal_air,1.17,degC,measured,mean park vs urban difference (m-a); Aram: up to 1.9 summer,Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1016/j.ufug.2011.10.001,Jim & Peng 2012,thermal_surface,8.1,degC,measured,42-day summer mean: surface under green roof vs bare concrete roof,Knight 2021 Additional file 5 (outcome data tables)
+10.1016/j.ufug.2013.03.002,"Vailshery, Jaganmohan & Nagendra 2013",thermal_air,3.0,degC,measured,"midday median, street segments with trees vs without (abstract: up to 5.6 afternoon)",Knight 2021 Additional file 5 (outcome data tables)
+10.1016/j.ufug.2013.03.002,"Vailshery, Jaganmohan & Nagendra 2013",pollutant_other,65,percent,measured,"up to; SO2 reduction, treed vs treeless road segments, Bangalore",primary abstract
+10.1016/j.ufug.2015.11.013,"Razzaghmanesh, Beecham & Salemi 2016",none,,,,"abstract qualitative (significant summer cooling, winter insulation); numeric values not accessible",primary abstract
+10.1016/j.ufug.2016.02.008,Vaz Monteiro et al. 2016,thermal_air,1.0,degC,measured,"up to; nocturnal cooling by largest greenspaces (~12 ha) extending 180-330 m, London",Aram 2019 Heliyon review text
+10.1016/j.ufug.2016.09.001,"Linden, Fonti & Esper 2016",thermal_air,0.9,degC,measured,"daytime median, park vs courtyard (night 1.0; park vs garden 0.6 day), 91 summer days",Knight 2021 Additional file 5 (outcome data tables)
+10.1016/s0360-1323(02)00066-5,Wong et al. 2003,thermal_air,4.2,degC,measured,maximum air temp difference above green roof plants vs hard surface (300 mm height),Knight 2021 Additional file 5 (outcome data tables)
+10.1016/s0360-1323(02)00066-5,Wong et al. 2003,thermal_surface,21.0,degC,measured,maximum surface temp: bare hard surface 57 vs under rooftop plants 36,Knight 2021 Additional file 5 (outcome data tables)
+10.1016/s0378-7788(01)00062-7,Niachou et al. 2001,energy,48,percent,modeled,up to (range <2-48%) cooling load reduction depending on existing roof insulation,primary abstract
+10.1016/s0378-7788(98)00032-2,"Ca, Asaeda & Abu 1998",thermal_air,1.72,degC,measured,"park vs urban surroundings, summer (m-a)",Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.1021/es404363m,Maher 2013,pm10,50,percent,measured,more than 50% indoor PM10 reduction behind temporary curbside birch tree line,primary abstract
+10.1038/srep33708,Edmondson et al. 2016,thermal_surface,3.1,degC,measured,overall mean soil temperature: non-domestic greenspace under trees/shrubs vs herbaceous (max monthly diff 5.7),Knight 2021 Additional file 5 (outcome data tables)
+10.1080/014311698214884,Spronken-Smith & Oke 1998,thermal_air,2.5,degC,measured,"daily mean park cool island, grass+tree parks, Vancouver (max 5.1 at night)",Knight 2021 Additional file 5 (outcome data tables)
+10.1155/2015/747259,Jänicke et al. 2014,thermal_air,2.0,degC,measured,mean radiant temperature (Tmrt) reduction in front of greened vs bare facade; air temp effect small,Knight 2021 Additional file 5 (outcome data tables)
+10.2134/jeq2015.01.0049,Sugawara et al. 2016,thermal_air,2.06,degC,measured,"sunny days (cloudy 0.06), large green space vs urban surroundings (m-a)",Knight 2021 Additional file 2 (meta-analysis effect sizes)
+10.3390/atmos9090332,Qiu et al. 2018,none,,,,abstract: no significant PM2.5/PM10 concentration difference vs control site,primary abstract
+10.3390/en13051246,Peñalvo López et al. 2020,energy,30,percent,measured,"summer-day cooling demand reduction, monitored building with green roof+facade (winter heating ~15%)",primary abstract
+10.3390/en6020598,Peng_Jim_2013,thermal_air,1.7,degC,modeled,"up to; pedestrian-level cooling, intensive green roof scenarios (extensive 0.4-0.7), ENVI-met, Hong Kong",primary abstract
+10.3390/ijerph16081465,Qiu et al. 2019,none,,,,abstract qualitative; no numeric pollutant reduction reported,primary abstract
+10.3390/ijerph18189705,Yang & Chen 2021,none,,,,abstract reports correlations only (PM2.5 positively correlated with green coverage); no reduction effect,primary abstract
+10.3390/su9081379,Anjos & Lopes 2017,thermal_air,1.31,degC,measured,cool season park cool island (hot season 0.84) (m-a),Knight 2021 Additional file 2 (meta-analysis effect sizes)
