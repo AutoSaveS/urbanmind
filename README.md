@@ -1,4 +1,10 @@
-# UrbanMind
+![UrbanMind](assets/banner.png)
+
+![Tests](https://img.shields.io/badge/tests-8%20passing-86DB2A?labelColor=102524)
+![Python](https://img.shields.io/badge/python-3.9%2B-7759FF?labelColor=102524)
+![PyTorch](https://img.shields.io/badge/backend-PyTorch-FF5C0A?labelColor=102524)
+![License](https://img.shields.io/badge/license-MIT-9DFA3A?labelColor=102524)
+![Status](https://img.shields.io/badge/manuscript-under%20review-85B1AF?labelColor=102524)
 
 **Urban Multi-domain Integrated Dynamics** — a knowledge-enhanced cross-domain tool
 for urban ecological environment evaluation and design integration.
@@ -11,6 +17,23 @@ links to Rhino/Grasshopper for synchronized parameter updates.
 > Companion code for the manuscript *"From fragmented simulation to integrated
 > assessment: A knowledge-enhanced cross-domain tool for urban ecological environment
 > evaluation"* (Building and Environment, under review).
+
+## Demo
+
+![Backend demo](docs/media/demo_preview.gif)
+
+Live session against the released backend: intervention sliders (canopy fraction,
+roof albedo) drive real model inference; the four domain fields, per-request latency,
+and the appended `runs/demo_session.jsonl` log lines update on every edit. The model
+here is the reference implementation trained on a **synthetic city**
+(`demo/train_synthetic.py`) — it validates the released pipeline, not the
+manuscript's empirical results.
+
+- Full video: [`docs/media/urbanmind_backend_demo.mp4`](docs/media/urbanmind_backend_demo.mp4)
+- Run it yourself: `python demo/train_synthetic.py && python demo/serve_demo.py`,
+  then open <http://127.0.0.1:8787>
+- Grasshopper client: paste `gh_bridge/UrbanMind_GH_component.py` into a Rhino 8
+  Python 3 Script component (see `docs/grasshopper_recording.md`)
 
 ## Architecture
 
