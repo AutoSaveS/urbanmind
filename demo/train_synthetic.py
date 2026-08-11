@@ -4,8 +4,7 @@ responses. Run: python demo/train_synthetic.py  (writes demo/synthetic_model.pt)
 The synthetic ground truth encodes known couplings so intervention responses are
 visible and physically sensible in direction: raising canopy cools the thermal
 field and improves air quality; raising roof albedo lowers building energy and
-temperature. The demo is labeled synthetic; it validates the released pipeline,
-not the manuscript's empirical claims.
+temperature. The demo is labeled synthetic.
 """
 
 from __future__ import annotations
