@@ -8,9 +8,9 @@ shared heterogeneous graph, grounds scenario responses in curated physical const
 and intervention evidence (KRCG: knowledge retrieval and constraint grounding), and
 links to Rhino/Grasshopper for synchronized parameter updates.
 
-> Companion repository for the manuscript *"From fragmented simulation to integrated
+> Companion code for the manuscript *"From fragmented simulation to integrated
 > assessment: A knowledge-enhanced cross-domain tool for urban ecological environment
-> evaluation"* (under revision, Building and Environment).
+> evaluation"* (Building and Environment, under review).
 
 ## Architecture
 
@@ -68,6 +68,25 @@ python scripts/synthetic_demo.py
 # Run the test suite
 pytest tests/
 ```
+
+## Scope of this release
+
+This repository contains the **reference implementation and reproducibility
+toolchain**. To keep the release honest about what it can and cannot verify:
+
+**Included** — model architecture (graph world model, coupling tensor, KRCG
+retrieval, constraint projection, downscaling closure), the unified statistical
+protocol, record-level Track A/B split enforcement, temporal harmonization audit,
+uncertainty calibration evaluation, the runtime benchmark logger and its JSONL log
+format, the Grasshopper HTTP bridge, and a synthetic end-to-end demo
+(`scripts/synthetic_demo.py`) that exercises the full chain without external data.
+
+**Not included** — trained model weights and the harmonized city datasets
+(license-restricted; see Data below). The interactive session shown in the
+supplementary **demo video** runs the trained model through the same
+`gh_bridge`/`runtime` code paths released here; the per-run timestamped logs from
+those sessions are released with the manuscript's supplementary data so the runtime
+claim can be checked against the video.
 
 ## Data
 
