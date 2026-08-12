@@ -10,3 +10,7 @@ logs/
 *.ckpt
 *.pt
 .DS_Store
+data/holdout/raw/cn/
+data/holdout/raw/sg/
+data/holdout/raw/*.zip
+data/holdout/raw/cn_station_list.csv
