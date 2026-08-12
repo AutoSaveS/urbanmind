@@ -1,8 +1,10 @@
 #!/bin/bash
-# Fetch the real PM2.5 station observations used by station_holdout_eval.py
-# (Nov-Dec 2023 test window). Sources: EPA AQS (NYC), CNEMC via quotsoft.net
-# mirror (Nanjing), NEA data.gov.sg (Singapore), qwd/LocationList (station
-# coordinates), opentopodata (elevations, fetched by the eval script).
+# Fetch the real PM2.5 station observations used by station_holdout_eval.py and
+# train_reference_model.py (full 2023: Jan-Aug train / Sep-Oct val / Nov-Dec
+# test). Sources: EPA AQS (NYC), CNEMC via quotsoft.net mirror (Nanjing), NEA
+# data.gov.sg (Singapore), qwd/LocationList (station coordinates), open-meteo
+# archive (daily meteorological drivers), opentopodata (elevations, fetched by
+# the eval script).
 set -e
 cd "$(dirname "$0")/../data/holdout/raw"
 mkdir -p cn sg
@@ -11,7 +13,13 @@ curl -sL -O "https://aqs.epa.gov/aqsweb/airdata/daily_88101_2023.zip"
 curl -sL -o cn_station_list.csv \
   "https://raw.githubusercontent.com/qwd/LocationList/master/POI-Air-Monitoring-Station-List-latest.csv"
 
-d="2023-11-01"
+for city in "nyc:40.7128:-74.0060" "nanjing:32.06:118.79" "singapore:1.35:103.82"; do
+  n=${city%%:*}; rest=${city#*:}; lat=${rest%%:*}; lon=${rest##*:}
+  [ -f "meteo_$n.json" ] || curl -s -o "meteo_$n.json" \
+    "https://archive-api.open-meteo.com/v1/archive?latitude=$lat&longitude=$lon&start_date=2023-01-01&end_date=2023-12-31&daily=temperature_2m_mean,wind_speed_10m_max,precipitation_sum,surface_pressure_mean,shortwave_radiation_sum,relative_humidity_2m_mean&timezone=auto"
+done
+
+d="2023-01-01"
 while [ "$d" != "2024-01-01" ]; do
   compact=$(echo "$d" | tr -d -)
   [ -f "cn/china_sites_$compact.csv" ] || \

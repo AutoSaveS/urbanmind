@@ -1,7 +1,7 @@
 [
   {
     "city": "NYC",
-    "model": "reference_gbr",
+    "model": "external",
     "n_stations": 11,
     "n_holdout": 3,
     "holdout_mode": "stratified 25% single split",
@@ -16,20 +16,20 @@
       "n": 98
     },
     "reference_model_vs_gridded_label": {
-      "r2": 0.9488137675508647,
-      "rmse": 1.219974737870463,
+      "r2": 0.8230573161750881,
+      "rmse": 2.268248125434514,
       "n": 98
     },
     "reference_model_vs_raw_obs": {
-      "r2": 0.7180238701225399,
-      "rmse": 2.7899763661257637,
+      "r2": 0.6606405379806366,
+      "rmse": 3.060725155702174,
       "n": 98
     },
-    "delta_r2_label_minus_obs": 0.2308
+    "delta_r2_label_minus_obs": 0.1624
   },
   {
     "city": "Nanjing",
-    "model": "reference_gbr",
+    "model": "external",
     "n_stations": 13,
     "n_holdout": 4,
     "holdout_mode": "stratified 25% single split",
@@ -45,20 +45,20 @@
       "n": 240
     },
     "reference_model_vs_gridded_label": {
-      "r2": 0.9414662255352312,
-      "rmse": 6.842354190276314,
+      "r2": 0.9481089139859432,
+      "rmse": 6.442414543634053,
       "n": 240
     },
     "reference_model_vs_raw_obs": {
-      "r2": 0.8877027329733189,
-      "rmse": 9.52464485884557,
+      "r2": 0.8032870530560878,
+      "rmse": 12.606097741226442,
       "n": 240
     },
-    "delta_r2_label_minus_obs": 0.0538
+    "delta_r2_label_minus_obs": 0.1448
   },
   {
     "city": "Singapore",
-    "model": "reference_gbr",
+    "model": "external",
     "n_stations": 5,
     "n_holdout": 5,
     "holdout_mode": "leave-one-region-out",
@@ -75,15 +75,15 @@
       "n": 285
     },
     "reference_model_vs_gridded_label": {
-      "r2": 0.5246495606280466,
-      "rmse": 4.186175595248282,
+      "r2": 0.3874545441990137,
+      "rmse": 4.752035242644221,
       "n": 285
     },
     "reference_model_vs_raw_obs": {
-      "r2": 0.29049950199654717,
-      "rmse": 3.7321910088543753,
+      "r2": 0.024886400148995014,
+      "rmse": 4.375373345250544,
       "n": 285
     },
-    "delta_r2_label_minus_obs": 0.2342
+    "delta_r2_label_minus_obs": 0.3626
   }
 ]

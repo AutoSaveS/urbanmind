@@ -48,22 +48,23 @@ NANJING_CODES = [
 ]
 
 
-def daterange():
-    d = START
-    while d <= END:
+def daterange(start=None, end=None):
+    d = start or START
+    end = end or END
+    while d <= end:
         yield d
         d += timedelta(days=1)
 
 
 # ---------------------------------------------------------------- loaders --
 
-def load_nyc():
+def load_nyc(start=None, end=None):
     with zipfile.ZipFile(RAW / "daily_88101_2023.zip") as z:
         with z.open(z.namelist()[0]) as f:
             df = pd.read_csv(f, dtype={"State Code": str, "County Code": str})
     df = df[(df["State Code"] == "36") & (df["County Code"].isin(NYC_COUNTIES))]
     df["Date Local"] = pd.to_datetime(df["Date Local"]).dt.date
-    df = df[(df["Date Local"] >= START) & (df["Date Local"] <= END)]
+    df = df[(df["Date Local"] >= (start or START)) & (df["Date Local"] <= (end or END))]
     df["station"] = df["State Code"] + df["County Code"] + df["Site Num"].astype(str).str.zfill(4)
     obs = (df.groupby(["station", "Date Local"])["Arithmetic Mean"].mean()
              .rename("pm25").reset_index().rename(columns={"Date Local": "date"}))
@@ -71,7 +72,7 @@ def load_nyc():
     return obs, coords.rename(columns={"Latitude": "lat", "Longitude": "lon"})
 
 
-def load_nanjing():
+def load_nanjing(start=None, end=None):
     sl = pd.read_csv(RAW / "cn_station_list.csv", header=None, skiprows=2,
                      names=["code", "lon", "lat", "name", "kind", "cid",
                             "city_cn", "city_en", "ad_cn", "ad_en", "prov_cn", "prov_en"],
@@ -80,7 +81,7 @@ def load_nanjing():
     sl = sl[sl["station"].isin(NANJING_CODES)].set_index("station")[["lat", "lon"]]
     sl = sl.astype(float)
     rows = []
-    for d in daterange():
+    for d in daterange(start, end):
         p = RAW / "cn" / f"china_sites_{d.strftime('%Y%m%d')}.csv"
         if not p.exists() or p.stat().st_size < 1000:
             continue
@@ -94,9 +95,9 @@ def load_nanjing():
     return pd.DataFrame(rows), sl
 
 
-def load_singapore():
+def load_singapore(start=None, end=None):
     meta, rows = {}, []
-    for d in daterange():
+    for d in daterange(start, end):
         p = RAW / "sg" / f"pm25_{d.strftime('%Y%m%d')}.json"
         if not p.exists():
             continue
