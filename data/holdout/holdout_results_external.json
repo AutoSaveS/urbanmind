@@ -1,0 +1,89 @@
+[
+  {
+    "city": "NYC",
+    "model": "external",
+    "n_stations": 11,
+    "n_holdout": 3,
+    "holdout_mode": "stratified 25% single split",
+    "holdout_stations": [
+      "360610079",
+      "360810124",
+      "360610128"
+    ],
+    "label_fidelity_vs_raw_obs": {
+      "r2": 0.7079780420060344,
+      "rmse": 2.8392400068369272,
+      "n": 98
+    },
+    "reference_model_vs_gridded_label": {
+      "r2": 0.8230573161750881,
+      "rmse": 2.268248125434514,
+      "n": 98
+    },
+    "reference_model_vs_raw_obs": {
+      "r2": 0.6606405379806366,
+      "rmse": 3.060725155702174,
+      "n": 98
+    },
+    "delta_r2_label_minus_obs": 0.1624
+  },
+  {
+    "city": "Nanjing",
+    "model": "external",
+    "n_stations": 13,
+    "n_holdout": 4,
+    "holdout_mode": "stratified 25% single split",
+    "holdout_stations": [
+      "3423A",
+      "1156A",
+      "1155A",
+      "3425A"
+    ],
+    "label_fidelity_vs_raw_obs": {
+      "r2": 0.8578971690904229,
+      "rmse": 10.714343427598642,
+      "n": 240
+    },
+    "reference_model_vs_gridded_label": {
+      "r2": 0.9481089139859432,
+      "rmse": 6.442414543634053,
+      "n": 240
+    },
+    "reference_model_vs_raw_obs": {
+      "r2": 0.8032870530560878,
+      "rmse": 12.606097741226442,
+      "n": 240
+    },
+    "delta_r2_label_minus_obs": 0.1448
+  },
+  {
+    "city": "Singapore",
+    "model": "external",
+    "n_stations": 5,
+    "n_holdout": 5,
+    "holdout_mode": "leave-one-region-out",
+    "holdout_stations": [
+      "central",
+      "east",
+      "north",
+      "south",
+      "west"
+    ],
+    "label_fidelity_vs_raw_obs": {
+      "r2": -1.341220377247594,
+      "rmse": 6.779671601059291,
+      "n": 285
+    },
+    "reference_model_vs_gridded_label": {
+      "r2": 0.3874545441990137,
+      "rmse": 4.752035242644221,
+      "n": 285
+    },
+    "reference_model_vs_raw_obs": {
+      "r2": 0.024886400148995014,
+      "rmse": 4.375373345250544,
+      "n": 285
+    },
+    "delta_r2_label_minus_obs": 0.3626
+  }
+]

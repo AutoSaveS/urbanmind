@@ -1,6 +1,7 @@
 [
   {
     "city": "NYC",
+    "model": "reference_gbr",
     "n_stations": 11,
     "n_holdout": 3,
     "holdout_mode": "stratified 25% single split",
@@ -28,6 +29,7 @@
   },
   {
     "city": "Nanjing",
+    "model": "reference_gbr",
     "n_stations": 13,
     "n_holdout": 4,
     "holdout_mode": "stratified 25% single split",
@@ -56,6 +58,7 @@
   },
   {
     "city": "Singapore",
+    "model": "reference_gbr",
     "n_stations": 5,
     "n_holdout": 5,
     "holdout_mode": "leave-one-region-out",
