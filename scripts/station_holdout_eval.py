@@ -22,6 +22,7 @@ labels; substitute the UrbanMind predictions at the same station locations to
 obtain the manuscript numbers.
 """
 
+import argparse
 import json
 import zipfile
 from datetime import date, timedelta
@@ -188,24 +189,28 @@ def krige_day(train_xy, train_res, pred_xy, nugget, sill, rng):
 
 # -------------------------------------------------------------- pipeline --
 
-def evaluate_city(name, obs, coords, elev, holdout_stations=None, loo=False):
+def holdout_splits(coords, xy, loo):
+    """Deterministic holdout sets (spatial k-means strata, fixed seed)."""
+    if loo:
+        return [[s] for s in coords.index]
+    rng_state = np.random.RandomState(SEED)
+    k = min(3, max(1, len(coords) // 4))
+    strata = KMeans(n_clusters=k, random_state=SEED, n_init=10).fit_predict(xy)
+    holdout = []
+    for c in range(k):
+        members = [s for s, g in zip(coords.index, strata) if g == c]
+        n_hold = max(1, round(0.25 * len(members)))
+        holdout += list(rng_state.choice(members, size=n_hold, replace=False))
+    return [holdout]
+
+
+def evaluate_city(name, obs, coords, elev, holdout_stations=None, loo=False,
+                  external_preds=None):
     coords = coords.loc[sorted(set(obs["station"]) & set(coords.index))]
     obs = obs[obs["station"].isin(coords.index)].copy()
     X, xy = covariates(coords, elev)
     idx_map = {s: i for i, s in enumerate(coords.index)}
-    rng_state = np.random.RandomState(SEED)
-
-    if loo:
-        splits = [[s] for s in coords.index]
-    else:
-        k = min(3, max(1, len(coords) // 4))
-        strata = KMeans(n_clusters=k, random_state=SEED, n_init=10).fit_predict(xy)
-        holdout = []
-        for c in range(k):
-            members = [s for s, g in zip(coords.index, strata) if g == c]
-            n_hold = max(1, round(0.25 * len(members)))
-            holdout += list(rng_state.choice(members, size=n_hold, replace=False))
-        splits = [holdout]
+    splits = holdout_splits(coords, xy, loo)
 
     fid_p, fid_o, mdl_lab_p, mdl_lab_t, mdl_obs_p, mdl_obs_t = [], [], [], [], [], []
     for holdout in splits:
@@ -237,31 +242,40 @@ def evaluate_city(name, obs, coords, elev, holdout_stations=None, loo=False):
                                   for s, d in zip(ho["station"], ho["date"])]).dropna()
         fid_p += list(merged["label"]); fid_o += list(merged["pm25"])
 
-        # reference model trained on kriged labels at training stations
-        feats, labels = [], []
-        day_mean = tr.groupby("date")["pm25"].mean().to_dict()
-        for _, r in tr.iterrows():
-            i = idx_map[r["station"]]
-            doy = r["date"].timetuple().tm_yday
-            feats.append([xy[i, 0], xy[i, 1], X[i, 0], X[i, 1],
-                          np.sin(2 * np.pi * doy / 365), np.cos(2 * np.pi * doy / 365),
-                          day_mean[r["date"]]])
-            labels.append(r["pm25"])
-        gbr = GradientBoostingRegressor(random_state=SEED, n_estimators=300,
-                                        max_depth=3, learning_rate=0.05)
-        gbr.fit(np.array(feats), np.array(labels))
+        if external_preds is not None:
+            # score externally supplied model predictions (e.g. UrbanMind)
+            for _, r in merged.iterrows():
+                pred = external_preds.get((str(r["station"]), str(r["date"])))
+                if pred is None:
+                    continue
+                mdl_lab_p.append(pred); mdl_lab_t.append(r["label"])
+                mdl_obs_p.append(pred); mdl_obs_t.append(r["pm25"])
+        else:
+            # reference model trained on kriged labels at training stations
+            feats, labels = [], []
+            day_mean = tr.groupby("date")["pm25"].mean().to_dict()
+            for _, r in tr.iterrows():
+                i = idx_map[r["station"]]
+                doy = r["date"].timetuple().tm_yday
+                feats.append([xy[i, 0], xy[i, 1], X[i, 0], X[i, 1],
+                              np.sin(2 * np.pi * doy / 365), np.cos(2 * np.pi * doy / 365),
+                              day_mean[r["date"]]])
+                labels.append(r["pm25"])
+            gbr = GradientBoostingRegressor(random_state=SEED, n_estimators=300,
+                                            max_depth=3, learning_rate=0.05)
+            gbr.fit(np.array(feats), np.array(labels))
 
-        for _, r in merged.iterrows():
-            i = idx_map[r["station"]]
-            doy = r["date"].timetuple().tm_yday
-            f = [[xy[i, 0], xy[i, 1], X[i, 0], X[i, 1],
-                  np.sin(2 * np.pi * doy / 365), np.cos(2 * np.pi * doy / 365),
-                  day_mean.get(r["date"], np.nan)]]
-            if np.isnan(f[0][-1]):
-                continue
-            pred = float(gbr.predict(np.array(f))[0])
-            mdl_lab_p.append(pred); mdl_lab_t.append(r["label"])
-            mdl_obs_p.append(pred); mdl_obs_t.append(r["pm25"])
+            for _, r in merged.iterrows():
+                i = idx_map[r["station"]]
+                doy = r["date"].timetuple().tm_yday
+                f = [[xy[i, 0], xy[i, 1], X[i, 0], X[i, 1],
+                      np.sin(2 * np.pi * doy / 365), np.cos(2 * np.pi * doy / 365),
+                      day_mean.get(r["date"], np.nan)]]
+                if np.isnan(f[0][-1]):
+                    continue
+                pred = float(gbr.predict(np.array(f))[0])
+                mdl_lab_p.append(pred); mdl_lab_t.append(r["label"])
+                mdl_obs_p.append(pred); mdl_obs_t.append(r["pm25"])
 
     def metrics(p, t):
         p, t = np.array(p), np.array(t)
@@ -270,6 +284,7 @@ def evaluate_city(name, obs, coords, elev, holdout_stations=None, loo=False):
 
     res = {
         "city": name,
+        "model": "external" if external_preds is not None else "reference_gbr",
         "n_stations": int(len(coords)),
         "n_holdout": (int(len(coords)) if loo else len(splits[0])),
         "holdout_mode": "leave-one-region-out" if loo else "stratified 25% single split",
@@ -284,18 +299,49 @@ def evaluate_city(name, obs, coords, elev, holdout_stations=None, loo=False):
     return res
 
 
-def main():
+def load_cities():
     elev = json.loads((RAW / "elevations.json").read_text()) if (RAW / "elevations.json").exists() else {}
-    results = []
     nyc_obs, nyc_coords = load_nyc()
-    results.append(evaluate_city("NYC", nyc_obs, nyc_coords, elev))
     nj_obs, nj_coords = load_nanjing()
-    results.append(evaluate_city("Nanjing", nj_obs, nj_coords, elev))
     sg_obs, sg_coords = load_singapore()
-    results.append(evaluate_city("Singapore", sg_obs, sg_coords, elev, loo=True))
+    return elev, [("NYC", nyc_obs, nyc_coords, False),
+                  ("Nanjing", nj_obs, nj_coords, False),
+                  ("Singapore", sg_obs, sg_coords, True)]
 
+
+def emit_request(elev, cities):
+    """Write the list of (city, station, lat, lon, date) at which the model
+    under evaluation must supply daily PM2.5 predictions."""
+    rows = []
+    for name, obs, coords, loo in cities:
+        coords = coords.loc[sorted(set(obs["station"]) & set(coords.index))]
+        _, xy = covariates(coords, elev)
+        needed = sorted({s for split in holdout_splits(coords, xy, loo) for s in split})
+        dates = sorted(obs["date"].unique())
+        for s in needed:
+            st_dates = set(obs[obs["station"] == s]["date"])
+            for d in dates:
+                if d in st_dates:
+                    rows.append({"city": name, "station": s,
+                                 "lat": coords.loc[s, "lat"], "lon": coords.loc[s, "lon"],
+                                 "date": str(d), "pm25_pred": ""})
+    df = pd.DataFrame(rows)
+    df.to_csv(OUT / "urbanmind_prediction_request.csv", index=False)
+    print(f"request written: {OUT / 'urbanmind_prediction_request.csv'} ({len(df)} rows)")
+    print(df.groupby("city")["station"].nunique())
+
+
+def run(elev, cities, preds=None, tag=None):
+    results = []
+    for name, obs, coords, loo in cities:
+        city_preds = None
+        if preds is not None:
+            city_preds = {(s, d): v for (c, s, d), v in preds.items() if c == name}
+        results.append(evaluate_city(name, obs, coords, elev, loo=loo,
+                                     external_preds=city_preds))
+    out_name = f"holdout_results_{tag}.json" if tag else "holdout_results.json"
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "holdout_results.json").write_text(json.dumps(results, indent=2, ensure_ascii=False))
+    (OUT / out_name).write_text(json.dumps(results, indent=2, ensure_ascii=False))
     for r in results:
         print(f"\n{r['city']}: {r['n_stations']} stations, {r['n_holdout']} held out ({r['holdout_mode']})")
         for key in ("label_fidelity_vs_raw_obs", "reference_model_vs_gridded_label",
@@ -303,6 +349,30 @@ def main():
             m = r[key]
             print(f"  {key}: R2={m['r2']:.3f} RMSE={m['rmse']:.2f} (n={m['n']})")
         print(f"  delta R2 (label - obs) = {r['delta_r2_label_minus_obs']:+.3f}")
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--emit-request", action="store_true",
+                    help="write urbanmind_prediction_request.csv and exit")
+    ap.add_argument("--score-predictions", metavar="CSV",
+                    help="score a filled prediction request CSV (columns: "
+                         "city,station,date,pm25_pred) instead of the reference model")
+    args = ap.parse_args()
+    elev, cities = load_cities()
+    if args.emit_request:
+        emit_request(elev, cities)
+        return
+    preds = None
+    tag = None
+    if args.score_predictions:
+        pf = pd.read_csv(args.score_predictions, dtype={"station": str})
+        pf = pf.dropna(subset=["pm25_pred"])
+        preds = {(r["city"], str(r["station"]), str(r["date"])): float(r["pm25_pred"])
+                 for _, r in pf.iterrows()}
+        tag = "external"
+        print(f"scoring {len(preds)} external predictions")
+    run(elev, cities, preds=preds, tag=tag)
 
 
 if __name__ == "__main__":
