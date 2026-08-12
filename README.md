@@ -24,7 +24,7 @@ links to Rhino/Grasshopper for synchronized parameter updates.
 
 ## Demo
 
-![Backend demo](docs/media/demo_preview.gif)
+[![Backend demo — click to watch the full video](docs/media/demo_poster.png)](docs/media/urbanmind_demo_full.mp4)
 
 Live session against the released backend: intervention sliders (canopy fraction,
 roof albedo) drive real model inference; the four domain fields, per-request latency,
