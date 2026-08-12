@@ -1,0 +1,776 @@
+[
+  {
+    "key": "hu2022lora",
+    "doi": null,
+    "status": "no_doi_non_article",
+    "issues": []
+  },
+  {
+    "key": "kendall2017uncertainties",
+    "doi": null,
+    "status": "no_doi_no_match",
+    "issues": []
+  },
+  {
+    "key": "abdar2021review",
+    "doi": "10.1016/j.inffus.2021.05.008",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "A review of uncertainty quantification in deep learning: Techniques, applications and challenges",
+    "title_similarity": 0.85
+  },
+  {
+    "key": "page2021prisma",
+    "doi": "10.1136/bmj.n71",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "The PRISMA 2020 statement: an updated guideline for reporting systematic reviews",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "beck2023koppen",
+    "doi": "10.1038/s41597-023-02549-6",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "High-resolution (1 km) Köppen-Geiger maps for 1901–2099 based on constrained CMIP6 projections",
+    "title_similarity": 0.81
+  },
+  {
+    "key": "wang2025cities",
+    "doi": "10.1016/j.forpol.2025.103541",
+    "status": "mismatch",
+    "issues": [
+      "first author 'wang' vs Crossref 'wu'"
+    ],
+    "crossref_title": "Cities that breathe: Quantifying carbon emission reductions through forest city designation",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "kumar2025urbangreening",
+    "doi": "10.3389/frsc.2025.1595280",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Urban greening for climate resilient and sustainable cities: grand challenges and opportunities",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "crowley2024bridging",
+    "doi": "10.1016/j.ufug.2024.128626",
+    "status": "mismatch",
+    "issues": [
+      "first author 'crowley' vs Crossref 'stuhlmacher'"
+    ],
+    "crossref_title": "Bridging the land use gap: Examining tree canopy cover and connectivity by land use in 10 U.S. cities",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "coleman2025equity",
+    "doi": "10.1016/j.landurbplan.2025.105345",
+    "status": "mismatch",
+    "issues": [
+      "first author 'coleman' vs Crossref 'messier'"
+    ],
+    "crossref_title": "Equity impacts of street tree spacing guidelines: A case study in two Los Angeles neighborhoods",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "eisenman2024managing",
+    "doi": "10.1016/j.landurbplan.2024.105102",
+    "status": "mismatch",
+    "issues": [
+      "first author 'eisenman' vs Crossref 'cadaval'"
+    ],
+    "crossref_title": "Managing urban trees through storms in three United States cities",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "bassett2024aligning",
+    "doi": "10.1002/ecs2.70120",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Aligning urban forest management actions with urban sustainability goals: A multi‐city expert elicitation",
+    "title_similarity": 0.79
+  },
+  {
+    "key": "grabowski2023transforming",
+    "doi": "10.1016/j.landurbplan.2022.104591",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Transforming US urban green infrastructure planning to address equity",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "oke2017urban",
+    "doi": "10.1017/9781139016476",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Urban Climates",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "santamouris2014cooling",
+    "doi": "10.1016/j.solener.2012.07.003",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Cooling the cities – A review of reflective and green roof mitigation technologies to fight heat island and improve comfort in urban environments",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "vardoulakis2003modelling",
+    "doi": "10.1016/S1352-2310(02)00857-9",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Modelling air quality in street canyons: a review",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "li2010effect",
+    "doi": "10.1016/j.buildenv.2010.05.025",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Effect of green roof on ambient CO2 concentration",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "sadeghipour2013ladybug",
+    "doi": null,
+    "status": "missing_doi_found",
+    "issues": [
+      "DOI available: 10.26868/25222708.2013.2499 (sim 1.00)"
+    ],
+    "suggested_doi": "10.26868/25222708.2013.2499"
+  },
+  {
+    "key": "stewart2012local",
+    "doi": "10.1175/BAMS-D-11-00019.1",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Local Climate Zones for Urban Temperature Studies",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "raissi2019physics",
+    "doi": "10.1016/j.jcp.2018.10.045",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "karniadakis2021physics",
+    "doi": "10.1038/s42254-021-00314-5",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Physics-informed machine learning",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "maraun2010precipitation",
+    "doi": "10.1029/2009RG000314",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Precipitation downscaling under climate change: Recent developments to bridge the gap between dynamical models and the end user",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "iea2024buildings",
+    "doi": null,
+    "status": "no_doi_non_article",
+    "issues": []
+  },
+  {
+    "key": "lipson2024evaluation",
+    "doi": "10.1002/qj.4589",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Evaluation of 30 urban land surface models in the <scp>Urban‐PLUMBER</scp> project: Phase 1 results",
+    "title_similarity": 0.81
+  },
+  {
+    "key": "li2024cooling",
+    "doi": "10.1038/s43247-024-01908-4",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Cooling efficacy of trees across cities is determined by background climate, urban morphology, and tree trait",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "demuzere2022global",
+    "doi": "10.5194/essd-14-3835-2022",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "A global map of local climate zones to support earth system modelling and urban-scale environmental science",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "singh2023downscalebench",
+    "doi": "10.1007/s43762-023-00096-9",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "DownScaleBench for developing and applying a deep learning based urban climate downscaling- first results for high-resolution urban precipitation climatology over Austin, Texas",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "kamath2024slucm",
+    "doi": "10.5194/gmd-17-8639-2024",
+    "status": "mismatch",
+    "issues": [
+      "first author 'kamath' vs Crossref 'takane'"
+    ],
+    "crossref_title": "SLUCM+BEM (v1.0): a simple parameterisation for dynamic anthropogenic heat and electricity consumption in WRF-Urban (v4.3.2)",
+    "title_similarity": 0.56
+  },
+  {
+    "key": "ricciardi2023digital",
+    "doi": "10.1007/978-3-031-29515-7_55",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Digital Twins for Climate-Neutral and Resilient Cities. State of the Art and Future Development as Tools to Support Urban Decision-Making",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "zhang2024gpt4v",
+    "doi": null,
+    "status": "missing_doi_found",
+    "issues": [
+      "DOI available: 10.1109/cvprw63382.2024.00780 (sim 1.00)"
+    ],
+    "suggested_doi": "10.1109/cvprw63382.2024.00780"
+  },
+  {
+    "key": "yu2025urbangraph",
+    "doi": null,
+    "status": "no_doi_no_match",
+    "issues": []
+  },
+  {
+    "key": "vahmani2022anthropogenic",
+    "doi": "10.1016/j.buildenv.2022.108841",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Anthropogenic heating of the urban environment: An investigation of feedback dynamics between urban micro-climate and decomposed anthropogenic heating from buildings",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "khan2023cooling",
+    "doi": "10.1007/s43762-023-00101-1",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Urban cooling potential and cost comparison of heat mitigation techniques for their impact on the lower atmosphere",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "wang2023planning",
+    "doi": "10.1177/1420326X221135758",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Planning for sustainable and ecological urban environment: Current trends and future developments",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "krayenhoff2021cooling",
+    "doi": "10.1088/1748-9326/abdcf1",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Cooling hot cities: a systematic and critical review of the numerical modelling literature",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "lei2024predicting",
+    "doi": "10.1016/j.compenvurbsys.2024.102129",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Predicting building characteristics at urban scale using graph neural networks and street-level context",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "wang2025boston",
+    "doi": "10.1038/s43247-025-02462-3",
+    "status": "mismatch",
+    "issues": [
+      "first author 'wang' vs Crossref 'smith'"
+    ],
+    "crossref_title": "Integrated tree canopy expansion and cool roofs can optimize air temperature and heat exposure reductions in Boston",
+    "title_similarity": 0.78
+  },
+  {
+    "key": "hong2020heatemissions",
+    "doi": "10.1016/j.apenergy.2020.115566",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Modeling and analysis of heat emissions from buildings to ambient air",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "wu2024streetthermal",
+    "doi": "10.1016/j.buildenv.2024.111780",
+    "status": "mismatch",
+    "issues": [
+      "first author 'wu' vs Crossref 'zheng'"
+    ],
+    "crossref_title": "Urban micro-scale street thermal comfort prediction using a ‘graph attention network’ model",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "lan2023indoorgnn",
+    "doi": "10.1016/j.buildenv.2023.110600",
+    "status": "mismatch",
+    "issues": [
+      "first author 'lan' vs Crossref 'zhang'"
+    ],
+    "crossref_title": "Graph neural network-based spatio-temporal indoor environment prediction and optimal control for central air-conditioning systems",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "shi2024htgnn",
+    "doi": "10.1016/j.isci.2024.110175",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Deep transformer-based heterogeneous spatiotemporal graph learning for geographical traffic forecasting",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "yao2024gloutci",
+    "doi": "10.5194/essd-16-2407-2024",
+    "status": "mismatch",
+    "issues": [
+      "first author 'yao' vs Crossref 'yang'"
+    ],
+    "crossref_title": "GloUTCI-M: a global monthly 1 km Universal Thermal Climate Index dataset from 2000 to 2022",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "wimmer2023uncertainty",
+    "doi": null,
+    "status": "no_doi_no_match",
+    "issues": []
+  },
+  {
+    "key": "edge2024graphrag",
+    "doi": null,
+    "status": "no_doi_no_match",
+    "issues": []
+  },
+  {
+    "key": "han2025graphrag",
+    "doi": null,
+    "status": "no_doi_no_match",
+    "issues": []
+  },
+  {
+    "key": "bai2023ipcc",
+    "doi": "10.1126/science.adl1522",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Make the upcoming IPCC Cities Special Report count",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "li2024greenspaces",
+    "doi": "10.1038/s41467-024-51355-0",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Green spaces provide substantial but unequal urban cooling globally",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "rodriguez2024co2removal",
+    "doi": "10.1038/s44284-024-00069-x",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Assessing global urban CO2 removal",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "wang2025dualuhi",
+    "doi": "10.1038/s41558-025-02303-3",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Dual impact of global urban overheating on mortality",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "kumar2024gbgi",
+    "doi": "10.1016/j.xinn.2024.100588",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Urban heat mitigation by green and blue infrastructure: Drivers, effectiveness, and future needs",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "shao2023drivers",
+    "doi": "10.1016/j.buildenv.2023.110581",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Drivers of global surface urban heat islands: Surface property, climate background, and 2D/3D urban morphologies",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "dong2025buildingscaleuhi",
+    "doi": "10.1016/j.buildenv.2024.112311",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "A simulation study on building-scale strategies for urban heat island mitigation and building energy consumption: Case study in Japan",
+    "title_similarity": 0.74
+  },
+  {
+    "key": "ferrando2020ubem",
+    "doi": "10.1016/j.scs.2020.102408",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Urban building energy modeling (UBEM) tools: A state-of-the-art review of bottom-up physics-based approaches",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "giandomenico2022retrofit",
+    "doi": "10.1146/annurev-resource-111920-124353",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "A Systematic Review of Energy Efficiency Home Retrofit Evaluation Studies",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "wang2022coolgreenroofs",
+    "doi": "10.1016/j.buildenv.2022.109082",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "The effectiveness of cool and green roofs in mitigating urban heat island and improving human thermal comfort",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "pantusheva2022airpollution",
+    "doi": "10.3390/atmos13101640",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Air Pollution Dispersion Modelling in Urban Environment Using CFD: A Systematic Review",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "reitberger2024urbansystems",
+    "doi": "10.1016/j.buildenv.2024.111360",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Urban systems exploration: A generic process for multi-objective urban planning to support decision making in early design phases",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "creutzig2024publicpolicy",
+    "doi": "10.1038/s42949-024-00168-7",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Towards a public policy of cities and human settlements in the 21st century",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "vaswani2017attention",
+    "doi": null,
+    "status": "missing_doi_found",
+    "issues": [
+      "DOI available: 10.1007/978-3-031-84300-6_13 (sim 1.00)"
+    ],
+    "suggested_doi": "10.1007/978-3-031-84300-6_13"
+  },
+  {
+    "key": "velickovic2018graph",
+    "doi": null,
+    "status": "no_doi_non_article",
+    "issues": []
+  },
+  {
+    "key": "perez2018film",
+    "doi": "10.1609/aaai.v32i1.11671",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "FiLM: Visual Reasoning with a General Conditioning Layer",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "he2022masked",
+    "doi": null,
+    "status": "missing_doi_found",
+    "issues": [
+      "DOI available: 10.1109/cvpr52688.2022.01553 (sim 1.00)"
+    ],
+    "suggested_doi": "10.1109/cvpr52688.2022.01553"
+  },
+  {
+    "key": "oord2016wavenet",
+    "doi": null,
+    "status": "no_doi_no_match",
+    "issues": []
+  },
+  {
+    "key": "bengio2015scheduled",
+    "doi": null,
+    "status": "no_doi_no_match",
+    "issues": []
+  },
+  {
+    "key": "kuleshov2018accurate",
+    "doi": null,
+    "status": "no_doi_no_match",
+    "issues": []
+  },
+  {
+    "key": "akbari2012long",
+    "doi": "10.1088/1748-9326/7/2/024004",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "The long-term effect of increasing the albedo of urban areas",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "bechtel2015mapping",
+    "doi": "10.3390/ijgi4010199",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Mapping Local Climate Zones for a Worldwide Database of the Form and Function of Cities",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "wan2014new",
+    "doi": "10.1016/j.rse.2013.08.027",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "New refinements and validation of the collection-6 MODIS land-surface temperature/emissivity product",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "epa2024aqs",
+    "doi": null,
+    "status": "no_doi_non_article",
+    "issues": []
+  },
+  {
+    "key": "noaa2024isd",
+    "doi": null,
+    "status": "no_doi_non_article",
+    "issues": []
+  },
+  {
+    "key": "nyc2024ll84",
+    "doi": null,
+    "status": "no_doi_non_article",
+    "issues": []
+  },
+  {
+    "key": "nea2024airquality",
+    "doi": null,
+    "status": "no_doi_non_article",
+    "issues": []
+  },
+  {
+    "key": "ema2024statistics",
+    "doi": null,
+    "status": "no_doi_non_article",
+    "issues": []
+  },
+  {
+    "key": "mss2024climate",
+    "doi": null,
+    "status": "no_doi_non_article",
+    "issues": []
+  },
+  {
+    "key": "berc2024china",
+    "doi": "10.1007/978-981-97-9120-0_1",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "China’s Building Energy Use and GHG Emissions",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "tjnanjing2024yearbook",
+    "doi": null,
+    "status": "no_doi_non_article",
+    "issues": []
+  },
+  {
+    "key": "cnemc2024data",
+    "doi": null,
+    "status": "no_doi_non_article",
+    "issues": []
+  },
+  {
+    "key": "lam2023graphcast",
+    "doi": "10.1126/science.adi2336",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Learning skillful medium-range global weather forecasting",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "bi2023pangu",
+    "doi": "10.1038/s41586-023-06185-3",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Accurate medium-range global weather forecasting with 3D neural networks",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "kochkov2024neuralgcm",
+    "doi": "10.1038/s41586-024-07744-y",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Neural general circulation models for weather and climate",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "nguyen2023climax",
+    "doi": null,
+    "status": "no_doi_no_match",
+    "issues": []
+  },
+  {
+    "key": "jin2023stgnn",
+    "doi": "10.1109/TKDE.2023.3333824",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Spatio-Temporal Graph Neural Networks for Predictive Learning in Urban Computing: A Survey",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "xu2024urbantwin",
+    "doi": "10.1007/s44212-024-00060-w",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Leveraging generative AI for urban digital twins: a scoping review on the autonomous generation of urban data, scenarios, designs, and 3D city models for smart city advancement",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "lewis2020retrieval",
+    "doi": null,
+    "status": "no_doi_no_match",
+    "issues": []
+  },
+  {
+    "key": "kashinath2021physics",
+    "doi": "10.1098/rsta.2020.0093",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Physics-informed machine learning: case studies for weather and climate modelling",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "mardani2025corrdiff",
+    "doi": "10.1038/s43247-025-02042-5",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Residual corrective diffusion modeling for km-scale atmospheric downscaling",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "chen2016xgboost",
+    "doi": "10.1145/2939672.2939785",
+    "status": "mismatch",
+    "issues": [
+      "title mismatch (sim 0.17): 'XGBoost'"
+    ],
+    "crossref_title": "XGBoost",
+    "title_similarity": 0.17
+  },
+  {
+    "key": "santamouris2020super",
+    "doi": "10.1016/j.renene.2020.07.109",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Recent development and research priorities on cool and super cool materials to mitigate urban heat island",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "akbari2022stateart",
+    "doi": "10.1016/j.enbuild.2019.109482",
+    "status": "mismatch",
+    "issues": [
+      "first author 'akbari' vs Crossref 'santamouris'"
+    ],
+    "crossref_title": "Recent progress on urban overheating and heat island research. Integrated assessment of the energy, environmental, vulnerability and health impact. Synergies with the global climate change",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "herath2023surface",
+    "doi": "10.1016/j.scitotenv.2023.162476",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Comparing the cooling effectiveness of operationalisable urban surface combination scenarios for summer heat mitigation",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "luo2025dataschema",
+    "doi": "10.1080/19401493.2022.2142295",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "A data schema for exchanging information between urban building energy models and urban microclimate models in coupled simulations",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "liu2024anthropogenic",
+    "doi": "10.1016/j.rser.2024.114802",
+    "status": "mismatch",
+    "issues": [
+      "first author 'liu' vs Crossref 'lu'"
+    ],
+    "crossref_title": "Quantification of anthropogenic heat and simulation of its effects on environment and climate: A comprehensive review",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "chen2021anthropogenic",
+    "doi": "10.3390/atmos11111206",
+    "status": "mismatch",
+    "issues": [
+      "first author 'chen' vs Crossref 'luo'"
+    ],
+    "crossref_title": "City-Scale Building Anthropogenic Heating during Heat Waves",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "wong2021greenery",
+    "doi": "10.1038/s43017-020-00129-5",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Greenery as a mitigation and adaptation strategy to urban heat",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "ahmadi2025otcml",
+    "doi": "10.1007/s00484-025-02921-8",
+    "status": "mismatch",
+    "issues": [
+      "first author 'ahmadi' vs Crossref 'alinasab'"
+    ],
+    "crossref_title": "A measurement-based framework integrating machine learning and morphological dynamics for outdoor thermal regulation",
+    "title_similarity": 0.71
+  },
+  {
+    "key": "lopezcabeza2025digitaltwin",
+    "doi": "10.3390/smartcities8050160",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "An Open-Source Urban Digital Twin for Enhancing Outdoor Thermal Comfort in the City of Huelva (Spain)",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "zhang2023bae",
+    "doi": "10.1016/j.buildenv.2022.109900",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Physiological equivalent temperature-based and universal thermal climate index-based adaptive-rational outdoor thermal comfort models",
+    "title_similarity": 0.81
+  },
+  {
+    "key": "hong2023bae",
+    "doi": "10.1016/j.buildenv.2023.110645",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Exploring the impact of urban factors on land surface temperature and outdoor air temperature: A case study in Seoul, Korea",
+    "title_similarity": 1.0
+  },
+  {
+    "key": "Marchau2019",
+    "doi": "10.1007/978-3-030-05252-2",
+    "status": "ok",
+    "issues": [],
+    "crossref_title": "Decision Making under Deep Uncertainty",
+    "title_similarity": 0.56
+  }
+]
