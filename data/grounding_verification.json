@@ -1,0 +1,16 @@
+{
+  "seed": 20260812,
+  "max_closure_error": 1.4210854715202004e-14,
+  "projection": {
+    "n_scenarios": 1000,
+    "n_constraints": 3505,
+    "median_abs_residual_before": 1.0399108158278112,
+    "median_abs_residual_after": 0.09781452168427607,
+    "p90_abs_residual_before": 2.4458843828239365,
+    "p90_abs_residual_after": 0.52105067318028,
+    "median_reduction_pct": 89.59792936990485,
+    "convergence_rate": 1.0,
+    "median_iterations": 11.0,
+    "max_iterations": 20
+  }
+}
