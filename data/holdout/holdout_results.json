@@ -1,0 +1,86 @@
+[
+  {
+    "city": "NYC",
+    "n_stations": 11,
+    "n_holdout": 3,
+    "holdout_mode": "stratified 25% single split",
+    "holdout_stations": [
+      "360610079",
+      "360810124",
+      "360610128"
+    ],
+    "label_fidelity_vs_raw_obs": {
+      "r2": 0.7079780420060344,
+      "rmse": 2.8392400068369272,
+      "n": 98
+    },
+    "reference_model_vs_gridded_label": {
+      "r2": 0.9488137675508647,
+      "rmse": 1.219974737870463,
+      "n": 98
+    },
+    "reference_model_vs_raw_obs": {
+      "r2": 0.7180238701225399,
+      "rmse": 2.7899763661257637,
+      "n": 98
+    },
+    "delta_r2_label_minus_obs": 0.2308
+  },
+  {
+    "city": "Nanjing",
+    "n_stations": 13,
+    "n_holdout": 4,
+    "holdout_mode": "stratified 25% single split",
+    "holdout_stations": [
+      "3423A",
+      "1156A",
+      "1155A",
+      "3425A"
+    ],
+    "label_fidelity_vs_raw_obs": {
+      "r2": 0.8578971690904229,
+      "rmse": 10.714343427598642,
+      "n": 240
+    },
+    "reference_model_vs_gridded_label": {
+      "r2": 0.9414662255352312,
+      "rmse": 6.842354190276314,
+      "n": 240
+    },
+    "reference_model_vs_raw_obs": {
+      "r2": 0.8877027329733189,
+      "rmse": 9.52464485884557,
+      "n": 240
+    },
+    "delta_r2_label_minus_obs": 0.0538
+  },
+  {
+    "city": "Singapore",
+    "n_stations": 5,
+    "n_holdout": 5,
+    "holdout_mode": "leave-one-region-out",
+    "holdout_stations": [
+      "central",
+      "east",
+      "north",
+      "south",
+      "west"
+    ],
+    "label_fidelity_vs_raw_obs": {
+      "r2": -1.341220377247594,
+      "rmse": 6.779671601059291,
+      "n": 285
+    },
+    "reference_model_vs_gridded_label": {
+      "r2": 0.5246495606280466,
+      "rmse": 4.186175595248282,
+      "n": 285
+    },
+    "reference_model_vs_raw_obs": {
+      "r2": 0.29049950199654717,
+      "rmse": 3.7321910088543753,
+      "n": 285
+    },
+    "delta_r2_label_minus_obs": 0.2342
+  }
+]
