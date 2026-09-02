@@ -39,6 +39,13 @@ here is the reference implementation trained on a **synthetic city**
 - Grasshopper client: paste `gh_bridge/UrbanMind_GH_component.py` into a Rhino 8
   Python 3 Script component (see `docs/grasshopper_recording.md`)
 
+> The interactive case-study page (https://4kc328.csb.app/) is an **interface mock-up
+> with precomputed responses and is not connected to the model backend**; runtimes
+> displayed there are illustrative. Measured runtimes come from
+> `urbanmind/runtime/benchmark.py` (see manuscript Section 5.4). The end-to-end video
+> in `docs/media/` demonstrates a reference implementation trained on a synthetic city
+> and is not one of the manuscript's three case cities.
+
 ## Architecture
 
 ```mermaid
@@ -93,6 +100,22 @@ These modules generate the supplementary artifacts referenced in the manuscript:
   width, expected calibration error, reliability diagrams (Appendix A.11).
 - **Runtime evidence** (`urbanmind/runtime/benchmark.py`) — per-run timestamped logs,
   warm-up discards, failure/timeout records, hardware capture (Section 5.4).
+
+## Reproducibility index (BAE revision)
+
+Files referenced in the response to reviewers (first revision). Comment numbers
+follow the response letter (R1 = Reviewer 1, R2 = Reviewer 2).
+
+| Revision item | Response letter | Files |
+|---|---|---|
+| Track B record-level split and leakage check | R1.1, R2.6 | `data/trackb/trackb_assignment.csv` (208 records: DOI, study site, intervention, climate tag, subset), `urbanmind/data/tracks.py` (DOI- and site-disjoint assignment, `verify_disjoint` leakage check), `scripts/make_record_assignment.py` |
+| PM2.5 station-holdout evaluation | R1.2, R2.9 | `scripts/fetch_holdout_data.sh`, `scripts/train_reference_model.py`, `scripts/station_holdout_eval.py`, `data/holdout/holdout_results_external.json` |
+| KRCG grounding verification (parent-cell closure, constraint projection) | R1.4, R2.10 | `urbanmind/model/grounding.py`, `scripts/grounding_verification.py`, `data/grounding_verification.json` |
+| Blocked-bootstrap inference for Experiment 1 (unified statistical protocol, Section 4.5) | R1.5, R1.6, R2.12 | `scripts/exp1_blocked_inference.py`, `urbanmind/eval/stats.py` |
+| Runtime benchmark harness (Section 5.4) | R1.7 | `urbanmind/runtime/benchmark.py` |
+| Uncertainty calibration evaluation (coverage, width, ECE, reliability) | R2.11 | `scripts/calibration_eval.py` |
+| Bibliography audit against Crossref | R2.13 | `scripts/audit_bibliography.py`, `data/bib_audit_report.json` |
+| Source-level completeness statistics (temporal harmonization audit) | R1.3 | `scripts/source_completeness_stats.py` |
 
 ## Quick start
 
