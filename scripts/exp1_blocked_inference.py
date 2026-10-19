@@ -31,7 +31,7 @@ Without --ensemble, the per-domain ensemble member is the baseline with the
 highest point R^2 in that domain (macro over its cities); declare the
 composition explicitly to match the manuscript's best-of-breed ensemble.
 
-Outputs (next to the input file, or data/ for --demo):
+Outputs (next to the input file, or the git-ignored runs/exp1_demo/ for --demo):
   exp1_blocked_report.json   full numeric report
   exp1_task_table.tex        12-task metric table with 95% block-bootstrap CIs
 """
@@ -263,7 +263,10 @@ def main():
 
     if args.demo:
         df = make_demo(args.seed)
-        outdir = ROOT / "data"
+        # synthetic self-test output goes to the git-ignored runs/ directory so
+        # it can never be mistaken for the manuscript's real analysis
+        outdir = ROOT / "runs" / "exp1_demo"
+        outdir.mkdir(parents=True, exist_ok=True)
     elif args.input:
         p = Path(args.input)
         df = pd.read_parquet(p) if p.suffix == ".parquet" else pd.read_csv(p)
