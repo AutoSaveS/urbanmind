@@ -16,6 +16,9 @@ data/holdout/raw/*.zip
 data/holdout/raw/cn_station_list.csv
 data/holdout/raw/*.xlsx
 
-# Raw Overpass responses for the case windows are reproducible from the
-# documented queries; only the processed tables are released.
+# Raw downloads for the case windows are reproducible from the documented
+# queries in build_case.py; only the processed tables are released. This also
+# keeps pre-signed URLs (which carry temporary credentials) out of history.
+cases/*/raw/
 cases/*/raw_osm*.json
+cases/*/__pycache__/

@@ -1,0 +1,52 @@
+case_id: 1
+site: South Bronx, New York City
+country: USA
+admin_unit: Bronx County, NY (FIPS 36005)
+centre:
+  lat: 40.816
+  lon: -73.902
+koppen: Dfa
+lcz: 3-6
+intervention: neighbourhood cool-roof and street-tree retrofit
+intervention_type: compound
+active_components:
+- delta_fvc
+- delta_albedo_roof
+scenario_vector:
+  delta_fvc: 0.06
+  delta_albedo_roof: 0.25
+  delta_r_wall: 0.0
+  delta_s_emit: 0.0
+edit_script_grid:
+  delta_fvc:
+  - 0.0
+  - 0.02
+  - 0.04
+  - 0.06
+  - 0.08
+  delta_albedo_roof:
+  - 0.0
+  - 0.1
+  - 0.25
+  - 0.4
+evaluation_weeks:
+  main: '2023-07-10'
+  all:
+  - '2023-07-10'
+  - '2023-01-16'
+  - '2023-04-17'
+  - '2023-10-09'
+subgraph:
+  adjacency_L: 2
+  wind_reachable: true
+  scope: window parent cells
+runtime_geometry: false
+building_stock:
+  height_source: nyc_footprints
+  construction_year_source: nyc_footprints
+  facade_area_rule: perimeter x height x 0.75
+data_gaps:
+- lst_day_c / lst_night_c (MODIS MOD11A1/MYD11A1 ingest not run for this case)
+- energy_kwh_m2_day (no parcel-matched EUI for NYC yet; PLUTO bldgarea is the intended base)
+- no2_ugm3 station field (AQS NO2 pre-generated file not ingested; CAMS model field only)
+- plantable_area_m2 / tree_count_plantable (WorldCover present, sidewalk buffer rule not yet run)

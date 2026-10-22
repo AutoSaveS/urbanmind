@@ -1,0 +1,93 @@
+case_id: 2
+site: Toa Payoh, Singapore
+country: Singapore
+admin_unit: Toa Payoh (HDB new town, 12 planning sub-zones)
+centre:
+  lat: 1.3356
+  lon: 103.8481
+koppen: Af
+lcz: 4
+intervention: height redistribution with street-tree canopy increase
+intervention_type: compound
+active_components:
+- height_redistribution
+- delta_fvc
+scenario_vector:
+  delta_fvc: 0.04
+  delta_albedo_roof: 0.0
+  delta_r_wall: 0.0
+  delta_s_emit: 0.0
+height_redistribution:
+  conservation: gross_floor_area
+  max_height_m: 60.0
+  min_height_m: 12.0
+edit_script_grid:
+  delta_fvc:
+  - 0.0
+  - 0.02
+  - 0.04
+  height_shift_m:
+  - -15
+  - -8
+  - 0
+  - 8
+  - 15
+evaluation_weeks:
+  main: '2023-04-17'
+  all:
+  - '2023-04-17'
+runtime_geometry: true
+subgraph:
+  adjacency_L: 2
+  wind_reachable: true
+  halo: true
+  parent_cells: 9
+  parent_cells_in_window: 9
+  parent_cells_in_district: 9
+  scope: window parent cells
+modified_nodes: all building cells in the 1500 m window
+week_selection:
+  exclude_daily_pm25_gt: null
+  modis_min_clear_days: null
+  no_missing_wind: true
+emission_edge_extent:
+  classes: []
+  length_km: 0.0
+  scaling: none; delta_s_emit is zero in this case
+reencode_scope: window parent cells with canopy or height change
+retrofit_scope:
+  construction_year_max: null
+  rule: not applicable; delta_r_wall is zero in this case
+  facade_area_rule: perimeter x height x 0.75
+cost_basis: not applicable; no retrofit or low-emission-zone spend in this case
+cost_reference: not applicable; no intervention cost is claimed without a Singapore price reference
+bci:
+  ref:
+    T_surf_c: 2.5
+    pm25_ugm3: 10
+    energy_pct: 20
+    coverage_pp: 8
+  T_weight_main_week: 0.0
+  weights: equal
+  T_sensitivity: 0.4
+  form: max(B,0)/(max(B,0)+c)
+  clip: aggregate only
+  cost: one-off, undiscounted
+energy_output:
+  primary: total_percent
+  secondary:
+  - cooling_percent
+  - heating_percent
+window_candidates:
+- 'Toa Payoh: Lorong 1/2 slab-block estate'
+- 'Toa Payoh: Lorong 4-6 slab-block estate'
+window:
+  centre_lat: 1.3356
+  centre_lon: 103.8481
+  half_width_m: 750
+  grid_origin_epsg: 32648
+  parent_cells: 3 x 3
+data_gaps:
+- LST (MODIS) needs Earthdata credentials
+- energy baseline (EMA/BCA sector totals x LCZ EUI)
+- OSM building heights for untagged non-HDB buildings

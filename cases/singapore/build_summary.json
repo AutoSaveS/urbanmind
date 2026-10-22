@@ -1,0 +1,59 @@
+{
+  "hdb_blocks": 165,
+  "osm_buildings": 130,
+  "floor_distribution": {
+    "1": 15,
+    "2": 7,
+    "3": 4,
+    "4": 17,
+    "5": 8,
+    "6": 2,
+    "7": 3,
+    "9": 3,
+    "10": 10,
+    "11": 6,
+    "12": 20,
+    "13": 6,
+    "15": 1,
+    "16": 5,
+    "17": 2,
+    "18": 2,
+    "19": 2,
+    "20": 3,
+    "22": 3,
+    "23": 1,
+    "25": 17,
+    "30": 9,
+    "33": 1,
+    "40": 16,
+    "42": 2
+  },
+  "hdb_height_median_m": 34.8,
+  "completion_year_coverage": "165/165",
+  "footprint_ha": 36.16,
+  "facade_m2": 1795611.5,
+  "roads": 2856,
+  "road_km": 162.71,
+  "drivable_roads": 2057,
+  "drivable_km": 91.72,
+  "parent_cells": 9,
+  "fvc_range": [
+    0.1502,
+    0.4901
+  ],
+  "albedo_range": [
+    0.1536,
+    0.1788
+  ],
+  "plantable_area_m2": 38333,
+  "tree_count": 332,
+  "pm25_ugm3": 51.45,
+  "no2_ugm3": 36.7,
+  "lcz": 4,
+  "scene": {
+    "scene_id": "S2B_48NUG_20230316_0_L2A",
+    "scene_date": "2023-03-16",
+    "scene_cloud_pct": 8.52
+  },
+  "_pending_fields": 27
+}

@@ -1,0 +1,113 @@
+{
+  "generated_by": "cases/singapore/build_case.py",
+  "window": {
+    "name": "Toa Payoh",
+    "centre": [
+      1.3356,
+      103.8481
+    ],
+    "half_width_m": 750.0,
+    "epsg": 32648,
+    "parent_cells": [
+      3,
+      3
+    ],
+    "main_week": "2023-04-17"
+  },
+  "fields": {
+    "hdb_block_geometry": {
+      "status": "real",
+      "count": 393,
+      "endpoint": "https://api-open.data.gov.sg/v1/public/api/datasets/d_16b157c52ed637edd6ba1232e026258d/poll-download"
+    },
+    "hdb_floor_count": {
+      "status": "real",
+      "field": "max_floor_lvl",
+      "endpoint": "https://api-open.data.gov.sg/v1/public/api/datasets/d_17f5382f26140b1fdae0ba2ef6239d2f/poll-download"
+    },
+    "hdb_completion_year": {
+      "status": "real",
+      "field": "year_completed",
+      "endpoint": "data.gov.sg d_17f5382f26140b1fdae0ba2ef6239d2f"
+    },
+    "osm_building_geometry": {
+      "status": "real",
+      "endpoint": "https://overpass-api.de/api/interpreter"
+    },
+    "osm_building_height": {
+      "status": "derived",
+      "rule": "height tag, else building:levels x 2.9 m",
+      "endpoint": "https://overpass-api.de/api/interpreter"
+    },
+    "building_footprint_area": {
+      "status": "derived",
+      "rule": "UTM 48N polygon area"
+    },
+    "facade_m2": {
+      "status": "derived",
+      "rule": "perimeter x height x 0.75"
+    },
+    "road_geometry": {
+      "status": "real",
+      "endpoint": "https://overpass-api.de/api/interpreter"
+    },
+    "road_width": {
+      "status": "derived",
+      "rule": "width tag, else lanes x 3.5 m, else LTA class default"
+    },
+    "fvc": {
+      "status": "derived",
+      "scene": "S2B_48NUG_20230316_0_L2A",
+      "endpoint": "https://earth-search.aws.element84.com/v1/search"
+    },
+    "albedo": {
+      "status": "derived",
+      "scene": "S2B_48NUG_20230316_0_L2A",
+      "endpoint": "https://earth-search.aws.element84.com/v1/search"
+    },
+    "land_cover": {
+      "status": "real",
+      "endpoint": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N00E102_Map.tif"
+    },
+    "pm25_ugm3": {
+      "status": "derived",
+      "value": 51.45,
+      "note": "CAMS ~11 km model field, not an observation",
+      "endpoint": "https://air-quality-api.open-meteo.com/v1/air-quality"
+    },
+    "no2_ugm3": {
+      "status": "derived",
+      "value": 36.7,
+      "note": "CAMS ~11 km model field, not an observation",
+      "endpoint": "https://air-quality-api.open-meteo.com/v1/air-quality"
+    },
+    "lst_day_c": {
+      "status": "pending",
+      "reason": "MODIS requires Earthdata credentials",
+      "intended_source": "LP DAAC MOD11A1"
+    },
+    "lst_night_c": {
+      "status": "pending",
+      "reason": "MODIS requires Earthdata credentials",
+      "intended_source": "LP DAAC MYD11A1"
+    },
+    "energy_kwh_m2_day": {
+      "status": "pending",
+      "reason": "no credential-free building-energy field for Singapore",
+      "intended_source": "EMA Energy Statistics x LCZ 4 EUI"
+    },
+    "tree_count_plantable": {
+      "status": "derived",
+      "rule": "0.5 x WorldCover grass x cell area / 115 m2"
+    },
+    "building_year_non_hdb": {
+      "status": "derived",
+      "rule": "OSM start_date where tagged, else empty"
+    }
+  },
+  "notes": [
+    "data.gov.sg calls are spaced by a few seconds.",
+    "Sentinel-2 scene is the least-cloudy 2023 acquisition under 30% cloud; SCL classes 4,5,6 retained.",
+    "OSM building ways whose centroid falls inside an HDB block are dropped."
+  ]
+}
