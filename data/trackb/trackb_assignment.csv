@@ -42,7 +42,7 @@ B067,10.1016/j.enbuild.2011.07.011,london:Kolokotroni_2013,B,fine_tuning,cool_ro
 B068,10.1016/j.enbuild.2011.07.017,poitiers:Bozonnet_2011,B,fine_tuning,cool_roof,Cfb,roof
 B069,10.1016/j.enbuild.2011.07.023,"trapani,-sicily:Romeo_2013",B,validation,cool_roof,Cs,roof
 B070,10.1016/j.enbuild.2011.09.011,"iraklion,-crete:Kolokotsa_2012",B,validation,cool_roof,Cs,roof
-B071,10.1016/j.enbuild.2011.09.018,tbd:Getter et al. 2011,B,validation,greening,Dfb,roof
+B071,10.1016/j.enbuild.2011.09.018,tbd:Getter et al. 2011,B,fine_tuning,greening,Dfb,roof
 B072,10.1016/j.enbuild.2012.01.044,athens:Synnefa_2012,B,validation,cool_roof,Csa,
 B073,10.1016/j.enbuild.2013.10.031,perugia:Pisello_2014,B,validation,cool_roof,Cs,roof
 B074,10.1016/j.enbuild.2015.04.055,"athens:Karachaliou, Santamouris & Pangalou 2016",B,validation,greening,Csa,roof
@@ -59,7 +59,7 @@ B088,10.1016/j.enbuild.2021.111299,kobe:Takebayashi_2021,B,validation,combined,C
 B089,10.1016/j.energy.2006.11.011,athens:Santamouris et al. 2007,B,fine_tuning,greening,Csa,roof
 B090,10.1016/j.energy.2015.01.092,singapore:Zingre_2015b,B,validation,cool_roof,Af,roof
 B091,10.1520/stp47767s,not-specified:2011,B,validation,retrofit,,
-B092,10.1016/j.enpol.2013.04.004,national-(gb):Hamilton_2013,B,validation,retrofit,Cfb,
+B092,10.1016/j.enpol.2013.04.004,national-(gb):Hamilton_2013,B,fine_tuning,retrofit,Cfb,
 B093,10.1016/j.enpol.2013.05.037,national-(england):Wyatt_2013,B,fine_tuning,retrofit,Cfb,
 B094,10.3390/ma14051226,not-specified:Fraga-De_2021,B,validation,retrofit,,
 B095,10.1016/j.enpol.2018.03.051,national:Tonn_Rose_Hawkins_2018,B,fine_tuning,retrofit,,
@@ -86,10 +86,10 @@ B117,10.1016/j.landurbplan.2006.09.005,"taipei:Chang, Li & Chang 2007",B,validat
 B118,10.1016/j.landurbplan.2009.04.005,sde-boqer-(negev):ShashuaBar_2009,B,validation,combined,Cs,
 B119,10.1016/j.landurbplan.2010.03.008,tbd:Cao et al. 2010,B,validation,greening,Cfa,LCZ B
 B120,10.1016/j.landurbplan.2013.11.002,athens:Skoulika et al. 2014,B,validation,greening,Csa,LCZ B
-B121,10.1016/j.landurbplan.2013.12.008,"addis-ababa:Feyisa, Dons & Meilby 2014",B,validation,greening,Cwb,LCZ B
+B121,10.1016/j.landurbplan.2013.12.008,"addis-ababa:Feyisa, Dons & Meilby 2014",B,fine_tuning,greening,Cwb,LCZ B
 B122,10.1016/j.landurbplan.2015.06.005,tbd:Gillner et al. 2015,B,validation,greening,Cfb,
 B123,10.1016/j.landurbplan.2018.10.022,seoul:Park_2019,B,validation,combined,Dwa,
-B125,10.1016/j.proenv.2017.03.103,athens:Androutsopoulos_2017,B,validation,cool_roof,Csa,roof
+B125,10.1016/j.proenv.2017.03.103,athens:Androutsopoulos_2017,B,fine_tuning,cool_roof,Csa,roof
 B126,10.1016/j.renene.2007.03.022,athens:Spala et al. 2008,B,validation,greening,Csa,roof
 B127,10.1016/j.renene.2009.07.022,islamabad:Ahmad_2010,B,validation,cool_roof,Aw,
 B128,10.1016/j.renene.2009.12.021,athens:Tsiros 2010,B,fine_tuning,greening,Csa,
@@ -124,7 +124,7 @@ B163,10.1038/s41467-023-36972-5,phoenix:Schneider_2023,B,validation,combined,BWh
 B164,10.1038/srep33708,tbd:Edmondson et al. 2016,B,fine_tuning,greening,Cfb,
 B167,10.3390/buildings12070954,not-specified:2022,B,validation,retrofit,,
 B168,10.1080/10962247.2013.868380,cologne/berlin/munich:Cyrys_2014,B,fine_tuning,low_emission_zone,Cfb,
-B169,10.1080/14733315.2012.11683966,"marousi,-athens:Santamouris_2012a",B,validation,cool_roof,Csa,
+B169,10.1080/14733315.2012.11683966,"marousi,-athens:Santamouris_2012a",B,fine_tuning,cool_roof,Csa,
 B170,10.1080/17512549.2013.865560,rome:Pisello_2013,B,fine_tuning,cool_roof,Csa,roof
 B171,10.1080/17512549.2014.890540,"pantnagar,-uttarakhand:Arumugam_2014",B,validation,cool_roof,Aw,
 B172,10.1088/1748-9326/7/1/014029,new-york:Gaffin_2012,B,validation,cool_roof,Cfa,roof
@@ -135,7 +135,7 @@ B176,10.1088/1748-9326/ac58a8,"covina,-los-angeles:Ko_2022",B,fine_tuning,cool_r
 B177,10.1088/2515-7620/ad2a8e,"pacoima,-los-angeles:Taha_2024",B,fine_tuning,cool_roof,Csb,
 B179,10.1136/oem.2010.063750,rome:Cesaroni_2012,B,fine_tuning,low_emission_zone,Csa,
 B180,10.1155/2015/747259,tbd:Jänicke et al. 2014,B,validation,greening,Cfb,
-B181,10.11113/jurnalteknologi.v85.15124,not-specified:2023,B,validation,retrofit,,
+B181,10.11113/jurnalteknologi.v85.15124,not-specified:2023,B,fine_tuning,retrofit,,
 B182,10.1177/0143624410394518,athens:Gaitani_2011,B,fine_tuning,combined,Csa,LCZ B
 B183,10.1371/journal.pone.0102999,17-cities:Morfeld_2014,B,fine_tuning,low_emission_zone,,
 B184,10.1515/noise-2020-0015,monza:Silvaggio_2020,B,validation,low_emission_zone,Cs,
@@ -157,19 +157,19 @@ B203,10.3390/su9081379,aracaju:Anjos & Lopes 2017,B,fine_tuning,greening,Aw,LCZ 
 B204,10.3390/w11122635,taipei:Cheng_2019,B,validation,cool_roof,Cfa,
 B205,10.4103/ijoem.ijoem_120_19,ahmedabad:Vellingiri_2020,B,validation,cool_roof,Aw,roof
 B206,10.5547/01956574.37.4.jziv,not-specified:GraffZivin_Novan_2016,B,fine_tuning,retrofit,Dfb,
-B208,10.1016/j.apenergy.2021.117082,not-specified:OA_2021,B,validation,cool_roof,,
-B209,10.3390/su12145729,not-specified:OA_2020,B,validation,cool_roof,,
+B208,10.1016/j.apenergy.2021.117082,not-specified:OA_2021,B,fine_tuning,cool_roof,,
+B209,10.3390/su12145729,not-specified:OA_2020,B,fine_tuning,cool_roof,,
 B210,10.3390/buildings13010021,not-specified:OA_2022,B,fine_tuning,cool_roof,,
 B215,10.3390/buildings13041103,not-specified:OA_2023,B,validation,retrofit,,
 B219,10.1016/j.buildenv.2015.06.021,not-specified:OA_2015,B,validation,retrofit,,
 B220,10.3390/buildings12040468,not-specified:OA_2022,B,fine_tuning,retrofit,,
-B222,10.3390/buildings10120233,not-specified:OA_2020,B,validation,combined,,
+B222,10.3390/buildings10120233,not-specified:OA_2020,B,fine_tuning,combined,,
 B224,10.3390/atmos13101586,rome:2022,B,validation,combined,,
 B226,10.3390/su11164452,phoenix:2019,B,fine_tuning,combined,,
 B227,10.1038/s41598-023-50981-w,durham:2024,B,validation,combined,,
 B228,10.3390/su12072752,changsha:2020,B,fine_tuning,combined,,
 B229,10.1016/j.scitotenv.2023.162476,melbourne:2023,B,validation,combined,,
-B230,10.3390/buildings12070903,sydney:2022,B,validation,combined,,
+B230,10.3390/buildings12070903,sydney:2022,B,fine_tuning,combined,,
 B231,10.1002/er.1535,athens:Sfakianaki_2009,B,fine_tuning,greening,,
 B232,10.1007/s43762-023-00101-1,kolkata:Khan_2023,B,validation,combined,,
 B233,10.1016/j.csite.2021.101632,beijing:Zhang_2021,B,fine_tuning,retrofit,,
@@ -181,7 +181,7 @@ B238,10.1016/j.jum.2022.01.002,mandaue-city:Cortes_2022,B,fine_tuning,combined,,
 B239,10.1016/j.uclim.2021.100863,barcelona:Gilabert_2021,B,validation,combined,,
 B240,10.1029/2024gl109634,london:Brousse_2024,B,fine_tuning,cool_roof,,
 B241,10.1038/s41598-020-71148-x,darwin:Haddad_2020,B,validation,combined,,
-B242,10.1061/(asce)ae.1943-5568.0000568,chongqing:Tsang_2022,B,validation,retrofit,,
+B242,10.1061/(asce)ae.1943-5568.0000568,chongqing:Tsang_2022,B,fine_tuning,retrofit,,
 B243,10.1063/5.0134055,nanjing:Wang_2023,B,validation,retrofit,,
 B244,10.1080/15567036.2020.1826013,tehran:Hosseini_2020,B,validation,retrofit,,
 B245,10.1088/1755-1315/1404/1/012038,malang:Citraningrum_2024,B,validation,cool_roof,,
@@ -189,10 +189,10 @@ B246,10.1093/ijlct/ctac031,cairo:Rached_2022,B,fine_tuning,retrofit,,
 B247,10.1175/jamc-d-23-0031.1,nanjing:Xiao_2023,B,validation,cool_roof,,
 B248,10.1186/s12302-020-00393-8,madrid:Aram_2020,B,validation,greening,,
 B249,10.1371/journal.pone.0288774,seoul:Hwang_2023,B,validation,greening,,
-B250,10.15320/iconarp.2022.211,izmir:CilasunKunduraci_2022,B,validation,retrofit,,
+B250,10.15320/iconarp.2022.211,izmir:CilasunKunduraci_2022,B,fine_tuning,retrofit,,
 B251,10.21273/hortsci.45.1.83,taipei:Lin_2010,B,fine_tuning,greening,,
 B252,10.28991/cej-03091158,cairo:Wahba_2018,B,validation,retrofit,,
-B253,10.3389/fbuil.2020.571429,austin:Blackhurst_2020,B,validation,cool_roof,,
+B253,10.3389/fbuil.2020.571429,austin:Blackhurst_2020,B,fine_tuning,cool_roof,,
 B254,10.3389/fenrg.2023.1291213,nanjing:Zhao_2023,B,fine_tuning,greening,,
 B255,10.3390/app13137348,belgrade:Perovic_2023,B,fine_tuning,retrofit,,
 B256,10.3390/buildings12101705,vienna:Salonen_2022,B,validation,greening,,
@@ -201,7 +201,7 @@ B258,10.3390/buildings14124063,guangzhou:Lin_2024,B,fine_tuning,combined,,
 B259,10.3390/cli6030068,beirut:Kaloustian_2018,B,validation,combined,,
 B260,10.3390/en13113020,athens:Detsi_2020,B,validation,retrofit,,
 B261,10.3390/en17051214,shenzhen:Zhao_2024,B,validation,retrofit,,
-B262,10.3390/heritage4040215,vienna:Elnagar_2021,B,validation,retrofit,,
+B262,10.3390/heritage4040215,vienna:Elnagar_2021,B,fine_tuning,retrofit,,
 B263,10.3390/su13116322,padua:Croce_2021,B,fine_tuning,cool_roof,,
 B264,10.3390/su132413524,palermo:Curto_2021,B,validation,retrofit,,
 B265,10.3390/su15021075,sheffield:RedondoBermudez_2023,B,validation,greening,,
