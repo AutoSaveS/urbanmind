@@ -1,15 +1,16 @@
 field,rule,status,source
-delta_fvc_baseline,"Sentinel-2 L2A S2B_48NUG_20230316_0_L2A (2023-03-16, cloud 8.52%), SCL 4/5/6 mask, NDVI -> clip((NDVI-0.15)/0.70,0,1), mean of 10 m pixels in cell",derived,Earth Search STAC sentinel-2-l2a
-albedo_baseline,"Liang (2001) broadband albedo 0.356*B02+0.130*B04+0.373*B08+0.085*B11+0.072*B12-0.0018, SCL-masked, mean of 10 m pixels in cell",derived,Earth Search STAC sentinel-2-l2a
-lst_day_c,"MODIS MOD11A1 daytime, 1 km -> 500 m",pending,LP DAAC (needs Earthdata credentials; no credential-free endpoint in scope)
-lst_night_c,"MODIS MYD11A1 nighttime, 1 km -> 500 m",pending,LP DAAC (needs Earthdata credentials)
-pm25_ugm3,"CAMS global atmospheric composition ~11 km model field, 24 h mean at window centre for the main week; NOT a station observation",derived,Open-Meteo air-quality API (CAMS)
-no2_ugm3,"CAMS ~11 km model field, 24 h mean at window centre",derived,Open-Meteo air-quality API (CAMS)
-energy_kwh_m2_day,No credential-free building-energy dataset for Singapore; would need EMA/MSD sector totals x LCZ 4 typical EUI,pending,EMA Singapore Energy Statistics / BCA
-tree_count_plantable,"plantable = 0.5 x (WorldCover 30 grass + 20 shrub/bare) x cell area, minus existing tree cover (10/95) not applied; divided by 115 m2 mean crown area",derived,ESA WorldCover 2021 v200 + crown-area literature
-building_year,HDB year_completed (authoritative); non-HDB OSM start_date where tagged,derived,data.gov.sg d_17f5382f26140b1fdae0ba2ef6239d2f; OSM start_date
-hdb_floors,max_floor_lvl from HDB Property Information; height_m = floors x 2.9 m,derived,data.gov.sg d_17f5382f26140b1fdae0ba2ef6239d2f
-road_width_flow,LTA class defaults for width; flow_ratio is a declared class prior,derived,case brief / LTA default widths; no Singapore flow survey
-svf,"svf = 1/(1 + H/W) with H = area-weighted mean building height, W = mean drivable carriageway width in the cell",derived,footprints.csv + roads.csv
+delta_fvc_baseline,"S2B_48NUG_20230316_0_L2A (2023-03-16, cloud 8.52%), SCL 4/5/6 mask, NDVI -> clip((NDVI-0.15)/0.70,0,1), 10 m pixel mean per cell",derived,Earth Search STAC sentinel-2-l2a
+albedo_baseline,"Liang (2001) broadband albedo, SCL-masked, 10 m pixel mean per cell",derived,Earth Search STAC sentinel-2-l2a
+s2_valid_frac,Fraction of 10 m pixels in the cell that survive the SCL mask. Only 2 of 9 cells reached a usable fraction on the single least-cloudy 2023 scene; the other 7 cells have empty FVC and albedo.,derived,Earth Search STAC sentinel-2-l2a
+lst_day_c,"NASA POWER TS at the 0.5 x 0.625 deg (~55 km) grid point containing Toa Payoh; daily mean of the main week. No day/night split, so the value is uniform across the 3x3 grid.",proxy,NASA POWER API (power.larc.nasa.gov)
+lst_night_c,Not available: POWER TS is a daily mean with no night split,pending,LP DAAC MYD11A1
+pm25_ugm3,"CAMS global ~11 km model field, 24 h mean at Toa Payoh for 2023-04-17 in Asia/Singapore local time; not a station observation. NEA publishes five regional values with no monitor coordinates, so no station field can be interpolated.",proxy,Open-Meteo air-quality API (CAMS)
+no2_ugm3,"As PM2.5; CAMS ~11 km model field, 24 h mean",proxy,Open-Meteo air-quality API (CAMS)
+energy_kwh_m2_day,"Stewart & Oke (2012) Table 4 Q_F midpoint for LCZ 4, W/m2 of GROUND area x 86400 / 3.6e6. Total anthropogenic heat, not building-only EUI.",proxy,Stewart & Oke (2012) Table 4
+tree_count_plantable,"0.5 x WorldCover grass x cell area, divided by 115 m2 mean mature crown",derived,ESA WorldCover 2021 v200 + crown-area literature
+building_year,HDB year_completed (authoritative); non-HDB OSM start_date where tagged,real,data.gov.sg d_17f5382f26140b1fdae0ba2ef6239d2f; OSM start_date
+hdb_floors,max_floor_lvl from HDB Property Information; height_m = floors x 2.9 m,real,data.gov.sg d_17f5382f26140b1fdae0ba2ef6239d2f
+road_width_flow,"LTA class defaults for width; flow_ratio is a declared class prior, no Singapore flow survey",derived,build_case.py class defaults
+svf,"svf = 1/(1 + H/W), H = area-weighted mean building height, W = mean drivable carriageway width",derived,footprints.csv + roads.csv
 lambda_p,footprint area / 250000 m2,derived,footprints.csv
-lcz,LCZ 4 (open high-rise) inferred from HDB slab floor distribution,derived,footprints.csv floor distribution
+lcz,LCZ 4 (open high-rise) inferred from the HDB slab floor distribution,derived,footprints.csv floor distribution

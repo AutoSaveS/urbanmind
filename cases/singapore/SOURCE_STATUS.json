@@ -58,43 +58,49 @@
     "fvc": {
       "status": "derived",
       "scene": "S2B_48NUG_20230316_0_L2A",
-      "endpoint": "https://earth-search.aws.element84.com/v1/search"
+      "endpoint": "https://earth-search.aws.element84.com/v1/search",
+      "note": "Only 2 of 9 cells reached a usable SCL-masked fraction; the other 7 are empty."
     },
     "albedo": {
       "status": "derived",
       "scene": "S2B_48NUG_20230316_0_L2A",
-      "endpoint": "https://earth-search.aws.element84.com/v1/search"
+      "endpoint": "https://earth-search.aws.element84.com/v1/search",
+      "note": "Only 2 of 9 cells reached a usable SCL-masked fraction; the other 7 are empty."
     },
     "land_cover": {
       "status": "real",
       "endpoint": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N00E102_Map.tif"
     },
     "pm25_ugm3": {
-      "status": "derived",
+      "status": "proxy",
       "value": 51.45,
-      "note": "CAMS ~11 km model field, not an observation",
+      "note": "CAMS ~11 km model field, 24 h mean in Asia/Singapore local time; not an observation. NEA regional values carry no monitor coordinates.",
       "endpoint": "https://air-quality-api.open-meteo.com/v1/air-quality"
     },
     "no2_ugm3": {
-      "status": "derived",
+      "status": "proxy",
       "value": 36.7,
-      "note": "CAMS ~11 km model field, not an observation",
+      "note": "CAMS ~11 km model field, 24 h mean",
       "endpoint": "https://air-quality-api.open-meteo.com/v1/air-quality"
     },
     "lst_day_c": {
-      "status": "pending",
-      "reason": "MODIS requires Earthdata credentials",
-      "intended_source": "LP DAAC MOD11A1"
+      "status": "proxy",
+      "value": 28.64,
+      "reason": "MODIS needs Earthdata credentials; POWER TS substituted",
+      "note": "NASA POWER TS, 0.5x0.625 deg (~55 km) grid point, daily mean with no day/night split; uniform across the 3x3 grid",
+      "endpoint": "https://power.larc.nasa.gov/api/temporal/daily/point"
     },
     "lst_night_c": {
       "status": "pending",
-      "reason": "MODIS requires Earthdata credentials",
+      "reason": "no night split in POWER TS; MODIS needs Earthdata credentials",
       "intended_source": "LP DAAC MYD11A1"
     },
     "energy_kwh_m2_day": {
-      "status": "pending",
+      "status": "proxy",
+      "value": "0.9 (LCZ 4), 1.5 (LCZ 3/6)",
       "reason": "no credential-free building-energy field for Singapore",
-      "intended_source": "EMA Energy Statistics x LCZ 4 EUI"
+      "note": "Stewart & Oke (2012) Table 4 Q_F midpoint, W/m2 of ground area x 86400/3.6e6; total anthropogenic heat, not building-only EUI",
+      "source": "Stewart & Oke (2012) Table 4"
     },
     "tree_count_plantable": {
       "status": "derived",
@@ -108,6 +114,7 @@
   "notes": [
     "data.gov.sg calls are spaced by a few seconds.",
     "Sentinel-2 scene is the least-cloudy 2023 acquisition under 30% cloud; SCL classes 4,5,6 retained.",
-    "OSM building ways whose centroid falls inside an HDB block are dropped."
+    "OSM building ways whose centroid falls inside an HDB block are dropped.",
+    "LST, energy, and air quality are proxies, not observations; see baseline_provenance.csv."
   ]
 }

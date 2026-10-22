@@ -1,0 +1,103 @@
+{
+  "generated_by": "cases/nyc/build_case.py",
+  "window": {
+    "name": "South Bronx",
+    "centre": [
+      40.816,
+      -73.902
+    ],
+    "parent_cells": [
+      3,
+      3
+    ],
+    "epsg": 32618,
+    "origin": {
+      "x0": 591500.0,
+      "y0": 4518000.0
+    },
+    "main_week": "2023-07-10"
+  },
+  "fields": {
+    "footprint_geometry": {
+      "status": "real",
+      "count": 2040,
+      "endpoint": "NYC Open Data MapPLUTO (Socrata)",
+      "note": "6 of 2047 cached records fell outside the UTM lattice and were dropped"
+    },
+    "height_m": {
+      "status": "real",
+      "rule": "height_roof (roof height above ground); ground_elevation is not subtracted from the reported value"
+    },
+    "building_year": {
+      "status": "real",
+      "field": "construction_year",
+      "coverage": "2010/2040"
+    },
+    "road_geometry": {
+      "status": "real",
+      "endpoint": "OSM Overpass"
+    },
+    "road_width": {
+      "status": "derived",
+      "rule": "width tag, else lanes x 3.5 m, else class default"
+    },
+    "fvc": {
+      "status": "derived",
+      "scene": "S2A_18TWL_20230601_0_L2A (2023-06-01, cloud 0.006%)",
+      "endpoint": "Earth Search STAC"
+    },
+    "albedo": {
+      "status": "derived",
+      "rule": "Liang (2001) broadband",
+      "endpoint": "Earth Search STAC"
+    },
+    "land_cover": {
+      "status": "real",
+      "endpoint": "ESA WorldCover 2021 v200 N39W075"
+    },
+    "plantable_area_m2": {
+      "status": "derived",
+      "rule": "0.5 x (grass + crop) x cell area"
+    },
+    "tree_count_plantable": {
+      "status": "derived",
+      "rule": "plantable_area_m2 / 115 m2"
+    },
+    "pm25_ugm3": {
+      "status": "proxy",
+      "value": 11.16,
+      "note": "CAMS ~11 km model field, 24 h mean in America/New_York local time; not an observation",
+      "endpoint": "Open-Meteo air-quality API"
+    },
+    "no2_ugm3": {
+      "status": "proxy",
+      "value": 14.85,
+      "note": "CAMS ~11 km model field, 24 h mean",
+      "endpoint": "Open-Meteo air-quality API"
+    },
+    "lst_day_c": {
+      "status": "proxy",
+      "value": 24.29,
+      "note": "NASA POWER TS, 0.5x0.625 deg (~55 km) grid point, daily mean with no day/night split; uniform across the 3x3 grid",
+      "endpoint": "https://power.larc.nasa.gov/api/temporal/daily/point"
+    },
+    "lst_night_c": {
+      "status": "pending",
+      "reason": "no night split in POWER TS; MODIS needs Earthdata credentials"
+    },
+    "energy_kwh_m2_day": {
+      "status": "proxy",
+      "value": "1.5 (LCZ 3), 0.9 (LCZ 6)",
+      "note": "Stewart & Oke (2012) Table 4 Q_F midpoint, W/m2 of ground area; total anthropogenic heat, not building-only EUI",
+      "source": "Stewart & Oke (2012) Table 4"
+    },
+    "lcz": {
+      "status": "derived",
+      "rule": "lambda_p, area-weighted height and median height"
+    }
+  },
+  "notes": [
+    "Air-quality days are resolved in America/New_York, matching the other two cases.",
+    "LST, energy and air quality are proxies, not observations; see baseline_provenance.csv."
+  ]
+}

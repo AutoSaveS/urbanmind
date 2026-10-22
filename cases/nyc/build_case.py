@@ -39,6 +39,7 @@ EPSG = 32618            # UTM 18N, the scene CRS of the Sentinel-2 tile
 
 KOPPEN = "Dfa"
 CASE_ID = 1
+TZ = "America/New_York"   # local day boundary for the CAMS daily mean
 
 FOOTPRINT_COLS = ["osm_id", "building", "levels", "start_date", "height_m",
                   "height_source", "floors", "footprint_m2", "perimeter_m",
@@ -192,13 +193,25 @@ def build_footprints(rows, g):
             "centroid": gu.centroid,
         })
     # assign cells
+    # The fetch window is a lon/lat rectangle built from the UTM grid box, so
+    # projection curvature lets a few centroids fall just outside the lattice.
+    # They are dropped rather than clipped: a footprint with no parent cell
+    # would enter none of the per-cell aggregates and would only inflate the
+    # building count.
+    x1, y1 = g["x0"] + g["ncol"] * CELL, g["y0"] + g["nrow"] * CELL
+    kept = []
     for rec in records:
         cx, cy = rec["centroid"].x, rec["centroid"].y
-        col = int((cx - g["x0"]) // CELL)
-        row = g["nrow"] - 1 - int((cy - g["y0"]) // CELL)
-        rec["cell_row"], rec["cell_col"] = row, col
+        if not (g["x0"] <= cx < x1 and g["y0"] <= cy < y1):
+            continue
+        rec["cell_row"] = g["nrow"] - 1 - int((cy - g["y0"]) // CELL)
+        rec["cell_col"] = int((cx - g["x0"]) // CELL)
         rec.pop("centroid")
-    return records
+        kept.append(rec)
+    dropped = len(records) - len(kept)
+    if dropped:
+        log(f"  dropped {dropped} footprints outside the {g['ncol']}x{g['nrow']} lattice")
+    return kept
 
 
 # --------------------------------------------------------------------------
@@ -438,12 +451,18 @@ def aqs_station_series(g):
 
 
 def fetch_openmeteo(lat, lon, weeks):
-    """CAMS ~11 km model field, hourly -> daily mean for each week's day."""
+    """CAMS ~11 km model field, hourly -> daily mean for each week's day.
+
+    The day is resolved in the case's local time zone, matching cases/nanjing
+    and cases/singapore. Left at the API default the day boundary is UTC, which
+    for a site at 74 W shifts the sampling window by five hours and changes the
+    daily mean.
+    """
     frames = {}
     for w in weeks:
         url = ("https://air-quality-api.open-meteo.com/v1/air-quality"
                f"?latitude={lat:.4f}&longitude={lon:.4f}"
-               f"&start_date={w}&end_date={w}"
+               f"&start_date={w}&end_date={w}&timezone={TZ}"
                "&hourly=pm2_5,nitrogen_dioxide&domains=cams_global")
         r = requests.get(url, timeout=90)
         if r.status_code != 200:
@@ -523,8 +542,12 @@ def assemble(g, footprints, roads, wc, fvc, alb, aq, aq_meta):
                 "wc_grass_frac": round(w.get("grass", ""), 4) if w else "",
                 "wc_built_frac": round(w.get("built", ""), 4) if w else "",
                 "cell_area_m2": int(CELL * CELL),
-                "plantable_area_m2": "",
-                "tree_count_plantable": "",
+                # Same rule as cases/nanjing: half of non-built herbaceous cover
+                # is taken as plantable, divided by a 115 m2 mature crown.
+                "plantable_area_m2": (round(0.5 * (w.get("grass", 0.0) + w.get("crop", 0.0))
+                                            * CELL * CELL) if w else ""),
+                "tree_count_plantable": (round(0.5 * (w.get("grass", 0.0) + w.get("crop", 0.0))
+                                               * CELL * CELL / 115.0) if w else ""),
                 "pm25_ugm3": (round(aq_meta["pm25"], 2)
                               if aq_meta.get("pm25") is not None else ""),
                 "no2_ugm3": (round(aq_meta["no2"], 2)

@@ -1,10 +1,10 @@
 field,rule,status,source
-delta_fvc_baseline,"Sentinel-2 L2A summer composite, endmembers 0.15/0.85",pending,Copernicus Data Space
-albedo_baseline,Sentinel-2 L2A broadband albedo 10-20 m -> 500 m mean,pending,Copernicus Data Space
-lst_day_c,MODIS MOD11A1 daytime LST 1 km -> 500 m,pending,LP DAAC
-lst_night_c,MODIS MYD11A1 nighttime LST 1 km -> 500 m,pending,LP DAAC
-pm25_ugm3,CNEMC station-hourly kriged to 500 m,pending,quotsoft archive
-no2_ugm3,CNEMC station-hourly kriged to 500 m,pending,quotsoft archive
-energy_kwh_m2_day,yearbook sector totals x LCZ typical EUI,pending,Nanjing yearbook 2024
-tree_count_plantable,plantable area / mature crown area,pending,WorldCover + canopy height
-building_year,WSF Evolution 1985-2015 and GAIA 1985-2018,pending,DLR / GAIA
+delta_fvc_baseline,"Sentinel-2 L2A summer composite, NDVI -> clip((NDVI-0.15)/0.70,0,1), 10 m pixel mean per cell",derived,Copernicus Data Space / Earth Search STAC
+albedo_baseline,"Liang (2001) broadband albedo 0.356*B02+0.130*B04+0.373*B08+0.085*B11+0.072*B12-0.0018, 10 m pixel mean per cell",derived,Copernicus Data Space / Earth Search STAC
+lst_day_c,"NASA POWER TS at the 0.5 x 0.625 deg (~55 km) grid point containing the district; daily mean of the main week. POWER TS has no day/night split, so the same value fills every cell and lst_night_c stays empty. Spatial structure is left to the model.",proxy,NASA POWER API (power.larc.nasa.gov)
+lst_night_c,"Not available: POWER TS is a daily mean with no night split, and MODIS MYD11A1 needs Earthdata credentials",pending,LP DAAC MYD11A1
+pm25_ugm3,"CAMS global ~11 km model field, 24 h mean at the district centre for the main week in Asia/Shanghai local time; not a station observation",proxy,Open-Meteo air-quality API (CAMS)
+no2_ugm3,"As PM2.5; CAMS ~11 km model field, 24 h mean at the district centre",proxy,Open-Meteo air-quality API (CAMS)
+energy_kwh_m2_day,"Stewart & Oke (2012) Table 4 Q_F midpoint for the cell's LCZ, W/m2 of GROUND area x 86400 / 3.6e6. Total anthropogenic heat (traffic, industry, metabolism, buildings), not building-only EUI; uniform within the LCZ class.",proxy,Stewart & Oke (2012) Table 4
+tree_count_plantable,plantable = 0.5 x non-built herbaceous and shrub cover x cell area; divided by 115 m2 mean mature crown,derived,ESA WorldCover 2021 v200 + crown-area literature
+building_year,WSF Evolution 1985-2015 and GAIA 1985-2018 cross-check,derived,DLR geoservice / GAIA v10

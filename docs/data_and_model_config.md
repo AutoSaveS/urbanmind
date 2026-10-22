@@ -1,7 +1,12 @@
 # Model inputs and run configuration
 
 Operational companion to manuscript §3.1 and Appendix A.2. Status: `OK` = acquired
-and used as provided; `DERIVED` = computed from the listed inputs by a stated rule.
+and used as provided; `DERIVED` = computed from the listed inputs by a stated rule;
+`PROXY` = a substitute source standing in for the intended observation, with the
+basis recorded in `cases/*/baseline_provenance.csv` and `SOURCE_STATUS.json`.
+
+Part 1 documents the Nanjing case (Case 3), whose inputs are the ones the manuscript
+reports. Parts 2B and 2C state where Cases 1 and 2 differ.
 
 ## Part 1 — Inputs by component
 
@@ -13,24 +18,47 @@ and used as provided; `DERIVED` = computed from the listed inputs by a stated ru
 
 | Item | Source | Access | Resolution | Status |
 | --- | --- | --- | --- | --- |
-| LST, day / night | MODIS MOD11A1 / MYD11A1 | Existing 500 m dataset; LP DAAC cloud cover checked at week selection | 1 km → 500 m, daily | OK |
+| LST, day / night | MODIS MOD11A1 / MYD11A1 | Intended; requires Earthdata credentials, not reachable from the build environment | 1 km → 500 m, daily | OK (manuscript) |
+| LST, day (case files) | NASA POWER `TS` | `power.larc.nasa.gov/api/temporal/daily/point`, free, no key | 0.5° × 0.625° grid point (≈55 km); daily mean, no day/night split | PROXY |
 | T_air, RH, radiation, precipitation | ERA5 single levels | Copernicus CDS, free ECMWF account | 0.25°, hourly | OK |
+
+The released `baseline.csv` carries the POWER proxy: one value per window, identical
+in every parent cell, with `lst_source` stating the basis. `lst_night_c` is left
+empty rather than duplicated from the daily mean. Spatial structure is left to the
+model. The manuscript's LST fields are the MODIS product; the two are not
+interchangeable and the proxy is not used to reproduce any reported number.
 
 **1.2 Air quality**
 
 | Item | Source | Access | Resolution | Status |
 | --- | --- | --- | --- | --- |
-| PM2.5, NO2, O3 station-hourly | CNEMC via quotsoft.net | `https://quotsoft.net/air/data/china_sites_YYYYMMDD.csv`, from 2014-05-13; station coordinates included | stations → 500 m kriging, hourly | OK |
+| PM2.5, NO2, O3 station-hourly | CNEMC via quotsoft.net | `https://quotsoft.net/air/data/china_sites_YYYYMMDD.csv`, from 2014-05-13; station coordinates included | stations → 500 m kriging, hourly | OK (manuscript) |
+| PM2.5, NO2 (case files) | CAMS global via Open-Meteo | `air-quality-api.open-meteo.com/v1/air-quality`, free, no key | ≈11 km model field, 24 h mean at the centre for the main week | PROXY |
+
+The daily mean is resolved in the case's local time zone (`Asia/Shanghai`,
+`America/New_York`, `Asia/Singapore`). Left at the API default the day boundary is
+UTC, which for a site at 74° W shifts the sampling window by five hours and moves
+the NYC daily mean from 11.16 to 9.21 µg/m³. All three cases now use local time.
 
 **1.3 Building energy**
 
 | Item | Source | Access | Resolution | Status |
 | --- | --- | --- | --- | --- |
-| Reconstructed energy field | Existing dataset (yearbook sector totals × LCZ typical EUI) | — | 500 m, daily | OK |
+| Reconstructed energy field | Existing dataset (yearbook sector totals × LCZ typical EUI) | — | 500 m, daily | OK (manuscript) |
 | Sector electricity | Nanjing Statistical Yearbook 2024, Tables 1-9, 7-14, 7-15 | <https://tjj.nanjing.gov.cn/material/njnj_2024/index.html>; 2023 total 7,472,669 ×10⁴ kWh; urban residents 920,638 ×10⁴ kWh | city, annual | OK |
 | Residential EUI | Table 1-9 ÷ Tables 3-1/3-6 ÷ Table 4-1 | Derived | city | DERIVED |
 | AC ownership per 100 households | Table 4-4 | As above | city | OK |
 | HDD / CDD | ERA5 T_air, base 18 / 26 °C | Derived | hourly | DERIVED |
+| Energy (case files) | Stewart & Oke (2012) Table 4, Q_F midpoint per LCZ | Table 4 class ranges: LCZ 1–3 50–75, LCZ 4–6 25–50, LCZ 7–10 0–25 W/m² | W/m² ground → kWh/m² ground/day | PROXY |
+
+**Basis.** The S&O Table 4 quantity is anthropogenic heat output Q_F in W per m² of
+**ground** area. It aggregates traffic, industry, metabolism and building energy, so
+it is not a building EUI and cannot be divided by floor area. The released field is
+therefore energy released per m² of ground per day (`energy_basis = ground_area`),
+computed as midpoint × 86400 / 3.6 × 10⁶, and it is constant within an LCZ class —
+1.5 kWh/m²/day for LCZ 2 and 3, 0.9 for LCZ 4 and 6. Hence Nanjing (all LCZ 2) reads
+1.5 throughout, NYC reads 1.5 on its LCZ 3 cells and 0.9 on its LCZ 6 cells, and
+Singapore (LCZ 4) reads 0.9 throughout.
 
 **1.4 Urban morphology**
 
@@ -75,13 +103,54 @@ and used as provided; `DERIVED` = computed from the listed inputs by a stated ru
 
 ### 4. Scenario vector a and baseline (Case 3)
 
+#### 4.1 `baseline.csv` field definitions
+
+One row per parent cell; the same schema in all three cases, with the extra columns
+noted. Every field below is either a direct read of a listed source or the stated
+rule applied to it; `cases/*/baseline_provenance.csv` holds the per-case version.
+
+| Field | Definition | Case 3 basis |
+| --- | --- | --- |
+| `cell_row`, `cell_col` | Integer lattice index; row 0 at the north edge | — |
+| `lon`, `lat` | Cell centre, EPSG:4326 | — |
+| `in_district` | 1 if the cell centre lies inside the administrative polygon | Gulou boundary |
+| `n_buildings` | Footprints whose centroid falls in the cell | OSM |
+| `lambda_p` | Footprint area ÷ cell area (250,000 m²) | DERIVED |
+| `h_mean_m` | Arithmetic mean building height | CNBH-10m |
+| `h_area_weighted_m` | Footprint-area-weighted mean height | CNBH-10m |
+| `road_width_mean_m` | Length-weighted mean drivable carriageway width | OSM width / lanes / class default |
+| `h_over_w` | `h_area_weighted_m` ÷ `road_width_mean_m` | DERIVED |
+| `svf` | 1 / (1 + H/W) — the Oke (1988) approximation, not a geometric SVF | DERIVED |
+| `lcz` | Rule-based class from λ_p, area-weighted and median height | DERIVED |
+| `koppen` | Köppen group, constant per window | Cfa |
+| `footprint_area_m2` | Sum of building footprint area in the cell | OSM |
+| `facade_area_m2` | Σ perimeter × height × 0.75 per building | DERIVED |
+| `height_source_mix` | Which height source contributed, `;`-separated | DERIVED |
+| `delta_fvc_baseline` | Existing fractional vegetation cover: NDVI → clip((NDVI − 0.15)/0.70, 0, 1), mean of 10 m pixels in the cell | Sentinel-2 L2A |
+| `albedo_baseline` | Liang (2001) broadband albedo 0.356·B02 + 0.130·B04 + 0.373·B08 + 0.085·B11 + 0.072·B12 − 0.0018, 10 m pixel mean | Sentinel-2 L2A |
+| `wc_tree_frac`, `wc_grass_frac`, `wc_built_frac` | ESA WorldCover 2021 class fractions per cell | WorldCover v200 |
+| `cell_area_m2` | 250,000 | — |
+| `plantable_area_m2` | 0.5 × (grass + crop) × cell area | WorldCover |
+| `tree_count_plantable` | `plantable_area_m2` ÷ 115 m² mean mature crown | DERIVED |
+| `building_year` | Construction year; WSF Evolution, GAIA cross-check (Case 2: HDB `year_completed`) | WSF / GAIA |
+| `pm25_ugm3`, `no2_ugm3` | CAMS ≈11 km model field, 24 h mean at the centre for the main week, local day boundary | PROXY |
+| `pm25_source` | Free-text statement of the above, carried in the row | — |
+| `lst_day_c` | NASA POWER `TS`, ≈55 km grid point, daily mean of the main week | PROXY |
+| `lst_night_c` | Empty; POWER `TS` has no day/night split and MODIS is unreachable | pending |
+| `energy_kwh_m2_day` | S&O 2012 Q_F midpoint × 86400 / 3.6 × 10⁶, per m² of ground | PROXY |
+| `energy_basis`, `energy_source` | `ground_area`, and the S&O citation with class range | — |
+| `baseline_status` | Completion flag for the row | — |
+| `scenario_case_id`, `main_week` | Case identifier and the evaluation week the observation fields belong to | — |
+
+#### 4.2 Scenario vector
+
 | Component | Value | Baseline | Source | Status |
 | --- | --- | --- | --- | --- |
-| ΔV_f | +0.02 | Current FVC; plantable = sidewalk buffer ≥3 m ∪ WorldCover 2021 grass/bare − current canopy | Sentinel-2, Meta/WRI, OSM, WorldCover | OK / DERIVED |
+| ΔV_f | +0.02 | `delta_fvc_baseline`; plantable = sidewalk buffer ≥3 m ∪ WorldCover 2021 grass/bare − current canopy | Sentinel-2, Meta/WRI, OSM, WorldCover | OK / DERIVED |
 | ΔV_f → tree count | ÷ crown area | *Platanus* 80–150 m²; *C. camphora* 60–100 m² | Literature | OK |
-| Δα_r | 0 | Sentinel-2 albedo (retained in c_sub) | As in 3 | OK |
+| Δα_r | 0 | `albedo_baseline` (retained in c_sub) | As in 3 | OK |
 | ΔR_wall | → 2.0 m²K/W | ≤2000: K ≈ 2.0 (R 0.5); 2001–2010: JGJ 134-2001 K ≤ 1.5 (R 0.67); >2010: JGJ 134-2010 Table 4.0.4 K ≤ 1.0 (R 1.0) | WSF Evolution / GAIA; JGJ 134-2010 | OK / DERIVED |
-| ΔR_wall surface | Buildings ≤2000 in window | Facade area = perimeter × height × 0.75 | OSM + CNBH-10m | DERIVED |
+| ΔR_wall surface | Buildings ≤2000 in window | `facade_area_m2`, restricted by `building_year` | OSM + CNBH-10m | DERIVED |
 | ΔS_emit | −40% to −50% | E_road weights (§2) | §2 | OK |
 | ΔS_emit extent | All district road edges | District road length | OSM | DERIVED |
 
@@ -173,6 +242,22 @@ Decoders D_m take no additional external input.
 | Re-encoding | Cells with changed input modality only |
 | K_i, δ_k | Matched from c, c_sub |
 | Main week | Per A |
+| Window | 3 × 3 parent cells at 500 m, origin snapped to the UTM lattice of the case's zone |
+| CAMS day boundary | Resolved in the case's local time zone |
+| Energy field | S&O 2012 Q_F midpoint of the cell's LCZ, per m² of ground |
+
+#### B.1 Window geometry
+
+| Case | Centre | UTM grid origin | Cells | Window |
+| --- | --- | --- | --- | --- |
+| 1 NYC | 40.816 N, 73.902 W | EPSG:32618, (591500, 4518000) | 3 × 3 | 1.5 km |
+| 2 Singapore | 1.3356 N, 103.8481 E | EPSG:32648 | 3 × 3 | 1.5 km |
+| 3 Nanjing | Gulou District, 32.082 N, 118.758 E | EPSG:32650 | 23 × 16, 234 cells (217 in district) | 54.16 km² district |
+
+Cases 1 and 2 take the window form; Case 3 takes the district form, which is why its
+subgraph spans ≈250–400 parents against 9 for the others. Footprints whose centroid
+falls outside the lattice are dropped rather than clipped, so a building never
+appears in `footprints.csv` without a parent cell.
 
 ### C. Case 3 (Nanjing) overrides
 
@@ -202,6 +287,42 @@ Decoders D_m take no additional external input.
 H, T, α, grounding thresholds, δ_k library, BCI definition and its three elements,
 re-anchoring, and the low-confidence criterion are shared across cases. Case-specific
 overrides would invalidate the single-checkpoint claim and cross-case BCI comparability.
+
+### E. Case 1 (New York City)
+
+| Parameter | Value | Rationale |
+| --- | --- | --- |
+| Site | South Bronx, Bronx County (FIPS 36005), 40.816 N 73.902 W | Case definition |
+| Köppen | Dfa | Four seasonal weeks |
+| LCZ composition | 3 on five cells, 6 on four cells; λ_p 0.085–0.365 | Derived from footprints |
+| Weeks | 4: July 10 (main), January 16, April 17, October 9 | Dfa rule |
+| Active components | ΔV_f = 0.06, Δα_r = 0.25; ΔR_wall = ΔS_emit = 0 | Cool roof + street tree |
+| Edit script | ΔV_f 0–0.08 in 5 steps; Δα_r 0–0.4 in 4 steps | Case parameters |
+| V_mod | Window parent cells (9) | Neighbourhood-scale, not district-wide |
+| Re-encoding | Window cells with canopy or roof-albedo change | — |
+| Runtime geometry | None; roof albedo is a scenario parameter, not a geometry edit | — |
+| T in BCI | July main week retains full weight | Cooling season; opposite of Case 3 |
+| Building stock | 2040 footprints, 2010 with a construction year, median height 10.06 m | MapPLUTO |
+| Cost basis | Not yet defined for NYC | No local price reference acquired |
+
+### F. Case 2 (Singapore)
+
+| Parameter | Value | Rationale |
+| --- | --- | --- |
+| Site | Toa Payoh, 1.3356 N 103.8481 E | Case definition |
+| Köppen | Af | Single week |
+| LCZ | 4 (open high-rise) on all nine cells | HDB slab floor distribution |
+| Weeks | 1: April 17, 2023 | Af rule |
+| Active components | Height redistribution under gross-floor-area conservation + ΔV_f = 0.04 | Case definition |
+| Edit script | ΔV_f 0–0.04 in 3 steps; height shift −15 to +15 m in 5 steps | Case parameters |
+| Height bounds | 12–60 m, gross floor area conserved | Slab-block redevelopment envelope |
+| V_mod | All building cells in the 1.5 km window (9) | Height edits touch every block |
+| Re-encoding | Window cells with canopy or height change | — |
+| Runtime geometry | Enabled; SVF, H/W and λ_p recomputed per edit | Heights change, unlike Cases 1 and 3 |
+| T in BCI | April main week retains full weight | Perennial cooling season |
+| Building stock | 295 records: 165 HDB blocks with authoritative floor count and completion year, 130 OSM buildings of which 65 carry `building:levels` and 65 have no height at all (`height_source = pending`); those 65 are excluded from H/W and SVF rather than assigned a default | data.gov.sg + OSM |
+| Observation gaps | FVC and albedo on 2 of 9 cells only (Sentinel-2 SCL mask on the least-cloudy 2023 scene) | Disclosed in `baseline_provenance.csv` |
+| Cost basis | Not applicable; no intervention cost claimed | No Singapore price reference |
 
 ## Part 3 — Runtime ledger (Case 3, Nanjing)
 
