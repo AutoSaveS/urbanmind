@@ -139,6 +139,13 @@ Section 3.1 and Appendix A.2 for sources and harmonization rules. Loaders in
 The Track B literature library in `data/trackb/` is included: every record carries
 its DOI and the source review it was drawn from.
 
+Every model input, its source and access route, and the full run configuration for
+the three design-integration cases are itemised in
+[`docs/data_and_model_config.md`](docs/data_and_model_config.md). That document also
+records which configuration items are fixed across cases (checkpoint, rollout,
+grounding, downscaling, uncertainty, BCI definition) and which vary by case, plus the
+stage-level runtime ledger for the Nanjing case.
+
 ## License
 
 MIT — see `LICENSE`.
