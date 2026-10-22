@@ -1,0 +1,110 @@
+case_id: 3
+site: Gulou District, Nanjing
+country: China
+admin_unit: 鼓楼区 (admin_level 6)
+centre:
+  lat: 32.0823111
+  lon: 118.7580665
+koppen: Cfa
+lcz: 2-3
+intervention: low-emission zone with envelope retrofit and street trees
+intervention_type: compound
+active_components:
+- delta_s_emit
+- delta_r_wall
+- delta_fvc
+scenario_vector:
+  delta_fvc: 0.02
+  delta_albedo_roof: 0.0
+  delta_r_wall: 2.0
+  delta_s_emit: -0.45
+edit_script_grid:
+  delta_s_emit:
+  - -0.3
+  - -0.4
+  - -0.45
+  - -0.5
+  - -0.6
+  delta_r_wall:
+  - 1.5
+  - 2.0
+  - 2.5
+  delta_fvc:
+  - 0.0
+  - 0.01
+  - 0.02
+  - 0.03
+  - 0.04
+  replanting_layouts: 2
+evaluation_weeks:
+  main: '2023-12-11'
+  all:
+  - '2023-12-11'
+  - '2023-03-13'
+  - '2023-06-12'
+  - '2023-09-11'
+week_selection:
+  exclude_daily_pm25_gt: 115
+  modis_min_clear_days: 4
+  no_missing_wind: true
+subgraph:
+  adjacency_L: 2
+  wind_reachable: true
+  halo: true
+  parent_cells: 234
+  parent_cells_in_district: 217
+modified_nodes: all drivable road cells in the district union window cells
+emission_edge_extent:
+  classes:
+  - living_street
+  - primary
+  - residential
+  - secondary
+  - service
+  - tertiary
+  - trunk
+  - unclassified
+  length_km: 786.0
+  scaling: E_road weight x (1 - |delta_s_emit|), NOx and primary PM equally
+reencode_scope: 1-4 window parent cells with canopy change
+runtime_geometry: false
+retrofit_scope:
+  construction_year_max: 2000
+  rule: JGJ 134-2001 for 2001-2010, JGJ 134-2010 for >2010
+  facade_area_rule: perimeter x height x 0.75
+cost_basis:
+  insulation_cny_m2_facade: 250
+  insulation_sensitivity:
+  - 200
+  - 350
+  tree_price_cny:
+    12cm: 450
+    15cm: 820
+  lez_annual_cny: 800000
+  apportionment_base: district drivable road length
+cost_reference:
+  unit_cny_m2_floor: 198
+  lot: JYFJ2600124-03SGGH
+bci:
+  ref:
+    T_surf_c: 2.5
+    pm25_ugm3: 10
+    energy_pct: 20
+    coverage_pp: 8
+  T_weight_main_week: 0.0
+  weights: equal
+  T_sensitivity: 0.4
+  form: max(B,0)/(max(B,0)+c)
+  clip: aggregate only
+  cost: one-off, undiscounted
+energy_output:
+  primary: total_percent
+  secondary:
+  - cooling_percent
+  - heating_percent
+window_candidates:
+- 'Gulou: Zhongyangmen, Hehui-Sanpailou street area'
+- 'Xuanwu: Liaojiaxiang estate, 282 Zhongyang Road'
+data_gaps:
+- construction year for OSM footprints (WSF Evolution / GAIA)
+- FVC, albedo, LST, PM2.5, energy baseline (pending observation ingest)

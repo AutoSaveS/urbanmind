@@ -15,3 +15,7 @@ data/holdout/raw/sg/
 data/holdout/raw/*.zip
 data/holdout/raw/cn_station_list.csv
 data/holdout/raw/*.xlsx
+
+# Raw Overpass responses for the case windows are reproducible from the
+# documented queries; only the processed tables are released.
+cases/*/raw_osm*.json

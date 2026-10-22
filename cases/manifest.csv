@@ -1,0 +1,2 @@
+case,case_id,intervention,koppen,lcz,parent_cells,cells_in_district,buildings,roads,road_km,drivable_road_km,footprint_ha,facade_m2,district_km2,main_week,n_weeks
+nanjing,3,low-emission zone with envelope retrofit and street trees,Cfa,2-3,234,217,7490,1696,921.2,786.0,504.6,13763000.0,54.16,2023-12-11,4

@@ -1,0 +1,10 @@
+field,rule,status,source
+delta_fvc_baseline,"Sentinel-2 L2A summer composite, endmembers 0.15/0.85",pending,Copernicus Data Space
+albedo_baseline,Sentinel-2 L2A broadband albedo 10-20 m -> 500 m mean,pending,Copernicus Data Space
+lst_day_c,MODIS MOD11A1 daytime LST 1 km -> 500 m,pending,LP DAAC
+lst_night_c,MODIS MYD11A1 nighttime LST 1 km -> 500 m,pending,LP DAAC
+pm25_ugm3,CNEMC station-hourly kriged to 500 m,pending,quotsoft archive
+no2_ugm3,CNEMC station-hourly kriged to 500 m,pending,quotsoft archive
+energy_kwh_m2_day,yearbook sector totals x LCZ typical EUI,pending,Nanjing yearbook 2024
+tree_count_plantable,plantable area / mature crown area,pending,WorldCover + canopy height
+building_year,WSF Evolution 1985-2015 and GAIA 1985-2018,pending,DLR / GAIA
