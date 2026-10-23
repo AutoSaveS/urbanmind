@@ -71,6 +71,7 @@ flowchart LR
 | `urbanmind/eval/` | Experiments 1–3, unified statistical protocol (cluster bootstrap + Holm), calibration evaluation |
 | `urbanmind/runtime/` | Timestamped per-run benchmark logging for the <30 s interactive claim |
 | `urbanmind/gh_bridge/` | HTTP endpoint consumed by the Grasshopper component |
+| `cases/` | Inputs and run configuration for the three design-integration cases: 500 m parent grid, footprints, road network, baseline observation field, scenario file, configuration document |
 | `scripts/` | Track B library construction, record-assignment table, runtime benchmark, synthetic end-to-end demo |
 | `data/trackb/` | Track B intervention outcome library: 208 verified records, DOI/site-level split, extracted effect sizes |
 | `demo/` | Trainable synthetic backend, web viewer, video recording script |
