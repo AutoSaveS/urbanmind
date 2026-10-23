@@ -46,7 +46,9 @@ building_stock:
   construction_year_source: nyc_footprints
   facade_area_rule: perimeter x height x 0.75
 data_gaps:
-- lst_day_c / lst_night_c (MODIS MOD11A1/MYD11A1 ingest not run for this case)
-- energy_kwh_m2_day (no parcel-matched EUI for NYC yet; PLUTO bldgarea is the intended base)
-- no2_ugm3 station field (AQS NO2 pre-generated file not ingested; CAMS model field only)
-- plantable_area_m2 / tree_count_plantable (WorldCover present, sidewalk buffer rule not yet run)
+- lst_night_c: empty. POWER TS is a daily mean with no day/night split.
+- LST is a POWER grid-point proxy (~55 km, uniform across the 3x3 grid).
+- PM2.5 and NO2 are a CAMS ~11 km model field in local time, not an AQS station record.
+- energy_kwh_m2_day is Stewart & Oke (2012) Q_F per m2 of ground, not a parcel-matched EUI.
+- 30 of 2040 footprints carry no construction year.
+- No cost reference for NYC; BCI cost side is undefined for this case.

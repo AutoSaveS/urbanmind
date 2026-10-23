@@ -106,5 +106,7 @@ window_candidates:
 - 'Gulou: Zhongyangmen, Hehui-Sanpailou street area'
 - 'Xuanwu: Liaojiaxiang estate, 282 Zhongyang Road'
 data_gaps:
-- construction year for OSM footprints (WSF Evolution / GAIA)
-- FVC, albedo, LST, PM2.5, energy baseline (pending observation ingest)
+- lst_night_c: empty. POWER TS is a daily mean with no day/night split; MODIS MYD11A1 needs Earthdata credentials.
+- LST is a POWER grid-point proxy (~55 km, uniform across the district), not a MODIS 1 km field.
+- PM2.5 and NO2 are a CAMS ~11 km model field, not the CNEMC station kriging used in the manuscript.
+- energy_kwh_m2_day is Stewart & Oke (2012) Q_F anthropogenic heat per m2 of ground, not a building EUI.

@@ -88,6 +88,9 @@ window:
   grid_origin_epsg: 32648
   parent_cells: 3 x 3
 data_gaps:
-- LST (MODIS) needs Earthdata credentials
-- energy baseline (EMA/BCA sector totals x LCZ EUI)
-- OSM building heights for untagged non-HDB buildings
+- lst_night_c: empty. POWER TS is a daily mean with no day/night split.
+- LST is a POWER grid-point proxy (~55 km, uniform across the 3x3 grid).
+- PM2.5 and NO2 are a CAMS ~11 km model field; NEA publishes five regional values with no monitor coordinates.
+- energy_kwh_m2_day is Stewart & Oke (2012) Q_F per m2 of ground, not a building EUI.
+- FVC and albedo are present on 2 of 9 cells only; the SCL mask removed the rest.
+- 65 of 295 footprints have no height and are excluded from H/W and SVF.
